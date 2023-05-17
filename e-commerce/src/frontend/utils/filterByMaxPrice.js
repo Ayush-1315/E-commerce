@@ -1,0 +1,1 @@
+export const pricedProducts=(allProducts,maxPrice)=>allProducts.filter(({price})=>parseInt(price.replace(",",""))<=parseInt(maxPrice));

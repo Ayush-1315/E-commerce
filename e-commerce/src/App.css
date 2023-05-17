@@ -1,51 +1,82 @@
+*{
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
+  position: relative;
+  min-height: 100vhl
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
+.Navbar{
   display: flex;
-  flex-direction: column;
+  background-color: burlywood;
+  padding:0.5rem 1rem;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
-}
-
-.brand-title span {
-  color: #ffde59;
-}
-
-.brand-description {
-  font-size: 1.4rem;
-}
-
-.links {
+.categoryContainer{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.categoryContainer a{
+text-decoration: none;
+}
+.categoryContainer li{
+  list-style: none;
+  margin:0.5rem;
+}
+.categoryType{
+  display: block;
+  text-decoration: none;
+}
+.categoryIcon{
+  height:8rem;
+  border-radius: 50%;
+}
+/* Products Card */
+.card{
+  list-style: none;
+}
+.card a{
+  text-decoration: none;
+  color:black;
+}
+.productCard{
+width:15rem;
+height: 20rem;
+border-radius: 0.5rem;
+position: relative;
+transition: all 0.1s;
 }
 
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+.productCard:hover{
+/* transform: 1.2; */
+ box-shadow: 2px 2px 2px 0px  black;
+}
+.productImage{
+  width:100%;
+  height:10rem;
+}
+.productTitle{
+  white-space: nowrap; 
+  width:100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin:auto;
+  padding:0 0.4rem;
+  color: black;
+}
+.productPrice{
+  font-size: 2rem;
+  margin: 0.5rem auto;
+  font-weight: bolder;
+}
+.cartBtn{
+  width:90%;
+  border:none;
+  background-color: grey;
+  color:white;
+  padding:0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
 }
