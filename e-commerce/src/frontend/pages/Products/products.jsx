@@ -3,14 +3,19 @@ import { useProducts } from "../../context/productsContext";
 import { Filters } from "../../components/filters";
 import { useParams } from "react-router";
 import { useEffect } from "react";
+
+import { productDetails } from "../../services/getProductDetails";
+import { getCart } from "../../services/getCartItems";
 import "./products.css";
 export const Products = () => {
-  const { id } = useParams();
+  const { string } = useParams();
   const { filterDispatch } = useProducts();
   useEffect(() => {
-    if (id !== "" && id !== undefined) {
-      filterDispatch({ type: "FILTER_BY_SEARCH", payload: id });
+    if (string !== "" && string !== undefined) {
+      filterDispatch({ type: "FILTER_BY_SEARCH", payload: string});
     }
+    productDetails();
+    getCart();
   }, []);
   const { filtered } = useProducts();
   return (

@@ -21,73 +21,18 @@ export const ProductsProvider = ({ children }) => {
     showProducts: [],
     receivedProducts: [],
   });
-  const { sortBy, categories, rating, maxPrice, search } = filterState;
+
   useEffect(() => {
     (async () => {
       const response = await getProducts();
-      // console.log(response);
       setProducts({
         showProducts: response,
         receivedProducts: response,
       });
     })();
   }, []);
-  const { showProducts,receivedProducts } = products;
-  
-  // const categoryFilter = (categories.length!=0)?(showProducts.filter((product) => {
-  //   // console.log(parseInt(product.price))
-  //   if (
-  //     categories.includes(product.category) &&
-  //     product.rating > rating &&
-  //     parseInt(product.price.replace(",", "")) <= parseInt(maxPrice)
-  //   )
-  //     return true;
-  //   return false;
-  // })):receivedProducts;
-  
-  // const sortedProducts =
-  //   sortBy !== ""
-  //     ? sortBy === "low"
-  //       ? categoryFilter.sort((a, b) =>
-  //           parseFloat(a.price.replace(",", "")) <
-  //           parseFloat(b.price.replace(",", ""))
-  //             ? -1
-  //             : parseFloat(a.price.replace(",", "")) >
-  //               parseFloat(b.price.replace(",", ""))
-  //             ? 1
-  //             : 0
-  //         )
-  //       : categoryFilter.sort((a, b) =>
-  //           parseFloat(a.price.replace(",", "")) >
-  //           parseFloat(b.price.replace(",", ""))
-  //             ? -1
-  //             : parseFloat(a.price.replace(",", "")) <
-  //               parseFloat(b.price.replace(",", ""))
-  //             ? 1
-  //             : 0
-  //         )
-  //     : categoryFilter;
-  // console.log(sortedProducts);
-
-
-  // let sortedProducts = categoryFilter;
-  // if (sortBy === "") {
-  //   sortedProducts = categoryFilter;
-  // } else {
-  //   if (sortBy === "low") {
-  //     sortedProducts = sortedProducts.sort(
-  //       (a, b) => parseInt(a.price) - parseInt(b.price)
-  //     );
-  //   } else {
-  //     sortedProducts = sortedProducts.sort(
-  //       (a, b) => parseInt(b.price) - parseInt(a.price)
-  //     );
-  //   }
-  // }
-  // console.log(categoryFilter);
-  // console.log(sortedProducts);
+  const {receivedProducts } = products;
   const filtered=filterProducts(receivedProducts,filterState);
-  console.log("S1",filtered);
   return (
     <ProductsContext.Provider
       value={{ filtered, filterDispatch, filterState }}

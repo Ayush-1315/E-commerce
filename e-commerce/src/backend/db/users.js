@@ -13,6 +13,14 @@ export const users = [
     lastName: "Balika",
     email: "adarshbalika@gmail.com",
     password: "adarshbalika",
+    phone:"1234567890",
+    gender:"Female",
+    address:{
+      city:"New York city",
+      state:"New York",
+      country:"USA",
+      pin:11021
+    },
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },

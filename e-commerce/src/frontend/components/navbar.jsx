@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useProducts } from "../context/productsContext";
+import { useAuth } from "../context/authContext";
 export const Navbar=()=>{
     let navigate=useNavigate();
+    const {isLogin,authState}=useAuth();
     const {filterDispatch}=useProducts();
     const [search,setSearch]=useState('');
+    const {firstName,lastName}=authState;
     const changeHandler=(e)=>setSearch(e.target.value);
     const sendString=(e)=>{
         if(e.key==="Enter" && search!=="")
@@ -21,7 +24,7 @@ export const Navbar=()=>{
         <input type="search" onChange={changeHandler} onKeyDown={sendString} value={search}/>
     </div>
     <div className="options`">
-        <NavLink to="/login"><button>Login</button></NavLink>
+        {isLogin? <Link to={`/user/${firstName}`}>{`${firstName} ${lastName}`}</Link>: <NavLink to="/login"><button>Login</button></NavLink>}
         <NavLink to="/wishlist"><button>WishList</button></NavLink>
         <NavLink to="/cart"><button>Cart</button></NavLink>
     </div>

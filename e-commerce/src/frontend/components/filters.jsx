@@ -1,7 +1,6 @@
 import { useProducts } from "../context/productsContext";
 export const Filters = () => {
   const { filterDispatch, filterState } = useProducts();
-  const {categories:filterCategories}=filterState;
   const categories = [
     {
       category: "Computer accessories",
@@ -30,8 +29,8 @@ export const Filters = () => {
     },
   ];
   const rating = [1, 2, 3, 4];
-  console.log(filterState);
- console.log( filterState.categories.length!==0)
+ 
+ 
   return (
     <div style={{ width: "30vw", minHeight: "100vh" }}>
       <form action="#">
