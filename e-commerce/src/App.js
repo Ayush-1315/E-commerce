@@ -9,9 +9,9 @@ import { Footer } from "./frontend/components/footer";
 import { Login } from "./frontend/pages/Login/login";
 import { PrivateRoute } from "./frontend/components/privateRoute";
 import { UserPage } from "./frontend/pages/User/viewUser";
-import Mockman from "mockman-js";
-import { createUser } from "./frontend/services/createUser";
 import { Signup } from "./frontend/pages/Signup/signup";
+import {Product} from "./frontend/pages/Product Details/productDetails";  
+import Mockman from "mockman-js";
 function App() {
   
   return (
@@ -28,6 +28,7 @@ function App() {
         <Route path="/search/:string" element={<Products/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/mockman" element={ <Mockman />}/>
+        <Route path="/products/:productID" element={<Product/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/user/*" element={
           <PrivateRoute>

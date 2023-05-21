@@ -1,8 +1,8 @@
 import axios from "axios"
-export const productDetails=async()=>{
+export const productDetails=async(productID)=>{
   try{
-    const response=await axios.get("/api/products/c2b6d61f-97f6-48b1-afd8-b4df0789bd2a");
-    // console.log(response)
+    const response=await axios.get(`/api/products/${productID}`);
+    return(response?.data?.product);
   } 
   catch(e){
     console.log(e);

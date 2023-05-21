@@ -4,8 +4,6 @@ import { Filters } from "../../components/filters";
 import { useParams } from "react-router";
 import { useEffect } from "react";
 
-import { productDetails } from "../../services/getProductDetails";
-import { getCart } from "../../services/getCartItems";
 import "./products.css";
 export const Products = () => {
   const { string } = useParams();
@@ -14,8 +12,6 @@ export const Products = () => {
     if (string !== "" && string !== undefined) {
       filterDispatch({ type: "FILTER_BY_SEARCH", payload: string});
     }
-    productDetails();
-    getCart();
   }, []);
   const { filtered } = useProducts();
   return (
@@ -24,7 +20,7 @@ export const Products = () => {
       {filtered?.length !== 0 ? (
         <ul className="productsHolder">
           {filtered?.map((product, index) => (
-            <ProductCard {...product} key={index} />
+            <ProductCard product={product} key={index} />
           ))}
         </ul>
       ) : (

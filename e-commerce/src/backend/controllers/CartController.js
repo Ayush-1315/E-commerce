@@ -13,7 +13,6 @@ import { formatDate, requiresAuth } from "../utils/authUtils";
  * */
 export const getCartItemsHandler = function (schema, request) {
   const userId = requiresAuth.call(this, request);
-  console.log(userId)
   if (!userId) {
     return new Response(
       404,

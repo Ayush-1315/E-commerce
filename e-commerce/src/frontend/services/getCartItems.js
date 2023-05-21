@@ -1,11 +1,13 @@
 import axios from "axios";
-export const getCart = async () => {
-  const encodedToken = localStorage.getItem("token");
+export const getCart = async (encodedToken) => {
   try {
     const response = await axios.get("/api/user/cart", {
       headers: { authorization: encodedToken },
     });
-    console.log(response);
+    const{status,data}=response
+    if(status===200){
+      return data?.cart;
+    }
   } catch (e) {
     console.log(e);
   }
