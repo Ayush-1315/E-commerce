@@ -9,6 +9,7 @@ import { createRoot } from "react-dom/client";
 import { ProductsProvider } from "./frontend/context/productsContext";
 import { AuthProvider } from "./frontend/context/authContext";
 import { CartProvider } from "./frontend/context/cartContext";
+import { WishlistProvider } from "./frontend/context/wishistContext";
 // Call make Server
 makeServer();
 const rootElement = document.getElementById("root");
@@ -19,7 +20,9 @@ root.render(
       <ProductsProvider>
         <AuthProvider>
           <CartProvider>
+            <WishlistProvider>
             <App />
+            </WishlistProvider>
           </CartProvider>
         </AuthProvider>
       </ProductsProvider>

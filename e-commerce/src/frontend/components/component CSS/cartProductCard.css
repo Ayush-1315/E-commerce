@@ -1,0 +1,10 @@
+.cartCard{
+    display: flex;
+    width:40%;
+    margin:auto;
+    border:1px solid red;
+}
+.cartDisplayImage{
+    height: 10rem;
+    width: 10rem;
+}

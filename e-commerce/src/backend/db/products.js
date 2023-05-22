@@ -5,7 +5,7 @@
 
 export const products = [
   {
-   id:"8dbda250-7506-4816-9ef5-49dc3f07a3ff",
+   _id:"8dbda250-7506-4816-9ef5-49dc3f07a3ff",
   title:"PRODOT 5 in 1 combo Combo Set  (Black, White)",
    seller:"Rj18Wale",
    price:"1,299",
@@ -24,7 +24,7 @@ export const products = [
    }
   },
   {
-   id:"bfd51862-a05d-4a53-9e0e-3d99c34ceb8a",
+   _id:"bfd51862-a05d-4a53-9e0e-3d99c34ceb8a",
   title:"ZEBRONICS 100HB High Speed ZEB-100HB USB Hub  (Black)",
    seller:"indiaflashmartstore",
    price:"420",
@@ -42,7 +42,7 @@ export const products = [
    }
   },
   {
-   id:"47cb0744-2f19-4464-9788-b7216ca852b3",
+   _id:"47cb0744-2f19-4464-9788-b7216ca852b3",
   title:"PRODOT 5 in 1 combo Combo Set  (Black, White)",
    seller:"RSOsolutions",
    price:"999",
@@ -60,7 +60,7 @@ export const products = [
    }
   },
   {
-   id:"6759bb28-ded6-4814-80ca-3bb87f4721b5",
+   _id:"6759bb28-ded6-4814-80ca-3bb87f4721b5",
   title:"JioFi M2S Wireless Data Card  (Black)",
    seller:"No1AssuredSupplier",
    price:"3,459",
@@ -81,7 +81,7 @@ export const products = [
    }
   },
   {
-   id:"a4d34b33-ee01-4235-88a0-ecf5ecc4137c",
+   _id:"a4d34b33-ee01-4235-88a0-ecf5ecc4137c",
   title:"WACOM DTK-1660 Cintiq 16 13.6 x 7.6 inch Graphics Tablet  (Black, Connectivity - USB)",
    seller:"RetailNet",
    price:"69,775",
@@ -103,7 +103,7 @@ export const products = [
    }
   },
   {
-   id:"82c764f5-8dd5-4896-9f30-9cc8b067edee",
+   _id:"82c764f5-8dd5-4896-9f30-9cc8b067edee",
   title:"ZEBRONICS Zeb-U735 UPS",
    seller:"RetailNet",
    price:"3,399",
@@ -127,7 +127,7 @@ export const products = [
    }
   },
   {
-   id:"6b8659e9-9eb3-4085-81be-62220d067e9a",
+   _id:"6b8659e9-9eb3-4085-81be-62220d067e9a",
   title:"WACOM DTK-1660 Cintiq 16 13.6 x 7.6 inch Graphics Tablet  (Black, Connectivity - USB)",
    seller:"RetailNet",
    price:"69,775",
@@ -149,7 +149,7 @@ export const products = [
    }
   },
   {
-   id:"020d4264-f11e-4d2f-b7aa-820b218f47ba",
+   _id:"020d4264-f11e-4d2f-b7aa-820b218f47ba",
   title:"Bestor Dual-Sided Multifunctional Desk Pad ,Waterproof Desk Blotter Protector,Extended Mouse Pad/Desk Mat for Work from Home/Office/Gaming | Vegan PU Leather | Anti-Skid, Anti-Slip, Reversible Splash-Proof – Deskspread ~ Navy Blue & Yellow Mousepad  (Navy Blue, Golden Yellow)",
    seller:"BEST0R",
    price:"1,499",
@@ -166,7 +166,7 @@ export const products = [
    }
   },
   {
-   id:"4c28a5e1-7c3a-441b-a923-ef8b45f3a311",
+   _id:"4c28a5e1-7c3a-441b-a923-ef8b45f3a311",
   title:"Airtel AMF-311WW Data Card  (Black)",
    seller:"BrandRootAT",
    price:"3,249",
@@ -187,7 +187,7 @@ export const products = [
    }
   },
   {
-   id:"46e886b6-54f6-46e1-a281-0b63ed02b553",
+   _id:"46e886b6-54f6-46e1-a281-0b63ed02b553",
   title:"amd Ryzen 3 3200G with Radeon Vega 8 Graphics (YD3200C5FHBOX) 3.6 Ghz Upto 4 GHz AM4 Socket 4 Cores 4 Threads 2 MB L2 4 MB L3 Desktop Processor  (Silver)",
    seller:"RetailNet",
    price:"13,000",
@@ -207,7 +207,7 @@ export const products = [
    }
   },
   {
-   id:"5ebe7a5f-3bfa-4962-af3f-2ea6665317f6",
+   _id:"5ebe7a5f-3bfa-4962-af3f-2ea6665317f6",
   title:"WACOM CTL-4100/K0-CX Intuos Small 3.7 x 0.35 inch Graphics Tablet  (Black, Connectivity - USB)",
    seller:"RetailNet",
    price:"7,399",
@@ -226,7 +226,7 @@ export const products = [
    }
   },
   {
-   id:"c492d21e-d0dc-4e04-9885-69f287179486",
+   _id:"c492d21e-d0dc-4e04-9885-69f287179486",
   title:"WACOM CTL-4100/K0-CX Intuos Small 3.7 x 0.35 inch Graphics Tablet  (Black, Connectivity - USB)",
    seller:"RetailNet",
    price:"7,399",
@@ -245,7 +245,7 @@ export const products = [
    }
   },
   {
-   id:"8a2dc2b5-5f37-4c1f-9e28-dc49d4027863",
+   _id:"8a2dc2b5-5f37-4c1f-9e28-dc49d4027863",
   title:"KARWAN Back Cover for Poco M4 Pro  (Green, Shock Proof, Silicon, Pack of: 1)",
    seller:"KARWAN",
    price:"999",
@@ -263,7 +263,7 @@ export const products = [
    }
   },
   {
-   id:"c2b6d61f-97f6-48b1-afd8-b4df0789bd2a",
+   _id:"c2b6d61f-97f6-48b1-afd8-b4df0789bd2a",
   title:"ShopsyCart SmartBuy Back Cover for Google Pixel 6a  (Transparent, Grip Case, Silicon, Pack of: 1)",
    seller:"GRAB11",
    price:"499",
@@ -281,7 +281,7 @@ export const products = [
    }
   },
   {
-   id:"396ddb45-129a-4842-b7bf-d1afb8af7faf",
+   _id:"396ddb45-129a-4842-b7bf-d1afb8af7faf",
   title:"Bestor USB C to HDMI Adapter, 6 in 1 USB C Hub Laptop USB C Adapter 6 in 1 USB C Hub USB Hub  (Grey)",
    seller:"BEST0R",
    price:"2,999",

@@ -1,3 +1,13 @@
+import { WishListCard } from "../../components/wishlistCard"
+import { useCart } from "../../context/cartContext"
+import { useWishlist } from "../../context/wishistContext";
 export const Wishlist=()=>{
-    return <h1>This is Wishlist</h1>
+    const {cartState}=useCart();
+    const {wishlistState}=useWishlist();
+    return <>
+    {
+        wishlistState.map((product,index)=><WishListCard product={product} key={index}/>)
+    }
+    
+    </>
 }
