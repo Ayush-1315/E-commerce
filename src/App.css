@@ -4,6 +4,7 @@
   overflow-x: hidden;
 }
 .App {
+  background-color: rgb(240, 242, 245);
   text-align: center;
   position: relative;
   min-height: 100vh;
@@ -113,6 +114,7 @@ border-radius: 0.5rem;
 position: relative;
 transition: all 0.1s;
 padding:0.5rem;
+background-color: white;
 }
 
 .productCard:hover{

@@ -8,7 +8,7 @@ export const Cart = () => {
   const cartEmpty = cartState.length === 0;
   return (
     <div style={{ minHeight: "72vh", display: "flex", flexWrap: "wrap" }}>
-      <div style={{ width:"100%"}}>
+      {/* <div style={{ width: "100%" }}> */}
         {encodedToken ? (
           cartEmpty ? (
             <>
@@ -20,9 +20,11 @@ export const Cart = () => {
             </>
           ) : (
             <>
-              {cartState.map((product, index) => (
-                <CartProductCard product={product} key={index} />
-              ))}
+              <div className="cartList">
+                {cartState.map((product, index) => (
+                  <CartProductCard product={product} key={index} />
+                ))}
+              </div>
               <PriceCard />
             </>
           )
@@ -30,6 +32,6 @@ export const Cart = () => {
           <h1>Login First</h1>
         )}
       </div>
-    </div>
+    // </div>
   );
 };

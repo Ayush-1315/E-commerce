@@ -1,8 +1,15 @@
 .cartCard{
+    outline: 1px solid grey;
     display: flex;
-    width:100%;
-    margin:1rem;
-    border:1px solid red;
+    width: fit-content;
+    margin: 1rem;
+    /* border: 1px solid red; */
+    padding: 1rem;
+    border-radius: 3px;
+    box-shadow: 0px 3px 9px;
+}
+.cartProductDetails{
+    width: 20rem;
 }
 .cartDisplayImage{
     height: 10rem;
