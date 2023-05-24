@@ -6,6 +6,7 @@ import {
   useReducer,
 } from "react";
 import { getProducts } from "../services/getAllProducts";
+import { getCategories } from "../services/getCategories";
 import {
   initialFilter,
   filterReducerFunction,
@@ -21,21 +22,23 @@ export const ProductsProvider = ({ children }) => {
     showProducts: [],
     receivedProducts: [],
   });
-
+const [allCategories,setCategories]=useState([]);
   useEffect(() => {
     (async () => {
       const response = await getProducts();
+      const categoies=await getCategories();
       setProducts({
         showProducts: response,
         receivedProducts: response,
       });
+      setCategories([...categoies]);
     })();
   }, []);
   const {receivedProducts } = products;
   const filtered=filterProducts(receivedProducts,filterState);
   return (
     <ProductsContext.Provider
-      value={{ filtered, filterDispatch, filterState,receivedProducts }}
+      value={{ filtered, filterDispatch, filterState,receivedProducts,allCategories }}
     >
       {children}
     </ProductsContext.Provider>

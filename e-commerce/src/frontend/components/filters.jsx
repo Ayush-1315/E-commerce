@@ -1,33 +1,6 @@
 import { useProducts } from "../context/productsContext";
 export const Filters = () => {
-  const { filterDispatch, filterState } = useProducts();
-  const categories = [
-    {
-      category: "Computer accessories",
-      icon: "https://bit.ly/42ZW1Y9",
-      value: "computerAccessories",
-    },
-    {
-      category: "Mobiles",
-      icon: "https://bit.ly/42ZW1Y9",
-      value: "mobiles",
-    },
-    {
-      category: "Computers",
-      icon: "https://bit.ly/42ZW1Y9",
-      value: "computers",
-    },
-    {
-      category: "Networking Equipments",
-      icon: "https://bit.ly/42ZW1Y9",
-      value: "networking",
-    },
-    {
-      category: "Software",
-      icon: "https://bit.ly/42ZW1Y9",
-      value: "software",
-    },
-  ];
+  const { filterDispatch, filterState,allCategories } = useProducts();
   const rating = [1, 2, 3, 4];
  
  
@@ -46,7 +19,7 @@ export const Filters = () => {
           value={filterState.maxPrice}
         />
         <span>Category</span>
-        {categories.map(({ category, value }, index) => (
+        {allCategories.map(({ category, value }, index) => (
           <span
             style={{ display: "block", textAlign: "left", margin: "0 0.5rem" }}
             key={index}
