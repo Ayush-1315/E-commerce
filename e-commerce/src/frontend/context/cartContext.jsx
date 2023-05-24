@@ -1,11 +1,11 @@
 import {
-  useState,
   useEffect,
   createContext,
   useContext,
   useReducer,
 } from "react";
 import { cart, cartReducerFun } from "../reducers/cartReducer";
+import { error,notify } from "../../App";
 import { useAuth } from "./authContext";
 import { getCart } from "../services/getCartItems";
 import { addProductToCart } from "../services/addProductToCart";
@@ -30,12 +30,13 @@ export const CartProvider = ({ children }) => {
       try {
         const updatedCart = await addProductToCart(product, token);
         cartDispatch({ type: "LOAD_CART", payload: updatedCart });
+        notify("Added to cart");
       } catch (e) {
         console.log(e);
       }
     }
     else{
-        alert('Log in first');
+       error("Please login to continue.")
     }
   };
   const increaseProductQty=async(productID)=>{
@@ -43,6 +44,7 @@ export const CartProvider = ({ children }) => {
        try{
          const updatedCart=await increaseQty(productID,token);
          cartDispatch({ type: "LOAD_CART", payload: updatedCart });
+         
     }
     catch(e){
         console.log(e);

@@ -4,6 +4,7 @@ export const wishlistReducerFun=(state,action)=>{
  switch(type)
  { 
     case 'LOAD_CART':return[...payload];
+    case 'RESET':return[...wishlist];
     default: return [...state];
  }
 }

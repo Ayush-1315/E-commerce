@@ -10,7 +10,7 @@ export const Navbar=()=>{
     const {firstName,lastName}=authState;
     const changeHandler=(e)=>setSearch(e.target.value);
     const sendString=(e)=>{
-        if(e.key==="Enter" && search!=="")
+        if(e.key==="Enter" && search.trim()!=="")
         {filterDispatch({type:"FILTER_BY_SEARCH",payload:search});
         setSearch('');
         navigate(`/search/${search}`);

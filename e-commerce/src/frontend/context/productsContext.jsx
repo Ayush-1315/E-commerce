@@ -35,7 +35,7 @@ export const ProductsProvider = ({ children }) => {
   const filtered=filterProducts(receivedProducts,filterState);
   return (
     <ProductsContext.Provider
-      value={{ filtered, filterDispatch, filterState }}
+      value={{ filtered, filterDispatch, filterState,receivedProducts }}
     >
       {children}
     </ProductsContext.Provider>

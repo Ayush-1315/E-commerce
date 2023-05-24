@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
@@ -15,7 +14,7 @@ makeServer();
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 root.render(
-  <React.StrictMode>
+
     <BrowserRouter>
       <ProductsProvider>
         <AuthProvider>
@@ -27,5 +26,5 @@ root.render(
         </AuthProvider>
       </ProductsProvider>
     </BrowserRouter>
-  </React.StrictMode>
+
 );

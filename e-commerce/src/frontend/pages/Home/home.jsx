@@ -1,20 +1,20 @@
 import { Categories } from "../../components/categories";
 import { Slider } from "../../components/productSlider";
+import { Arrivals } from "../../components/arrivals";
 export const Home = () => {
-
   return (
     <div>
       <Slider />
       <Categories />
-      <div
+      {/* <div
         style={{
           display: "flex",
           width: "100%",
           justifyContent: "center",
           marginTop: "1rem",
-        }}
-      >
-        <div
+        }} */}
+      {/* > */}
+        {/* <div
           style={{
             width: "40%",
             height: "30vh",
@@ -29,8 +29,9 @@ export const Home = () => {
             backgroundColor: "grey",
             margin: "0.5rem 1rem",
           }}
-        ></div>
-      </div>
+        ></div> */}
+      {/* </div> */}
+      <Arrivals/>
     </div>
   );
 };

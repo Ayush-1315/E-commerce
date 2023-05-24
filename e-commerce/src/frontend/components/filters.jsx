@@ -49,9 +49,10 @@ export const Filters = () => {
         {categories.map(({ category, value }, index) => (
           <span
             style={{ display: "block", textAlign: "left", margin: "0 0.5rem" }}
+            key={index}
           >
             <input
-              key={index}
+             
               type="checkbox"
               value={value}
               id={category}
@@ -65,9 +66,10 @@ export const Filters = () => {
           </span>
         ))}
         <span>Rating</span>
-        {rating.map((rating) => (
+        {rating.map((rating,index) => (
           <span
             style={{ display: "block", textAlign: "left", margin: "0 0.5rem" }}
+            key={index}
           >
             <input
               type="radio"

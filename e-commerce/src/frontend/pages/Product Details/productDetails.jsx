@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import { useParams } from "react-router";
 import { productDetails } from "../../services/getProductDetails";
 import { ProductDetailCard } from "../../components/product";
+import { Loader } from "../../components/loader";
 export const Product = () => {
   const [product,setProduct]=useState();
   const { productID } = useParams();
@@ -16,8 +17,9 @@ export const Product = () => {
             console.log(e);
         }
     })()
-  },[]);        
+  },[]);       
+
   return <>
- {product!==undefined &&<ProductDetailCard product={product}/>}
+ {product!==undefined ?<ProductDetailCard product={product}/>:<Loader/>}
   </>;
 };

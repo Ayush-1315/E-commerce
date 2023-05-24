@@ -10,10 +10,35 @@ import { Login } from "./frontend/pages/Login/login";
 import { PrivateRoute } from "./frontend/components/privateRoute";
 import { UserPage } from "./frontend/pages/User/viewUser";
 import { Signup } from "./frontend/pages/Signup/signup";
-import {Product} from "./frontend/pages/Product Details/productDetails";  
+import {Product} from "./frontend/pages/Product Details/productDetails";
+import { Error } from "./frontend/components/errorPage";  
+import { ToastContainer, toast } from 'react-toastify';
 import Mockman from "mockman-js";
+export const notify=(message)=>{
+  toast.success(message, {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+      theme: "light",
+      });
+};
+export const error=(message)=>{
+  toast.error(message, {
+    position: "top-center",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: false,
+    progress: undefined,
+    theme: "light",
+    });
+}
 function App() {
-  
   return (
     <div className="App">
      <Navbar/>
@@ -40,7 +65,9 @@ function App() {
             <Cart/>
           </PrivateRoute>
         } />
+        <Route path="/*" element={<Error/>}/>
       </Routes>
+      <ToastContainer/>
       <Footer/>
     </div>
   );

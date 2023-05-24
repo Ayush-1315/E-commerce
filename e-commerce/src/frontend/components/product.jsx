@@ -2,6 +2,7 @@ import "./component CSS/productDetailCard.css";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/cartContext";
 import { useWishlist } from "../context/wishistContext";
+import { notify } from "../../App";
 export const ProductDetailCard = ({ product }) => {
   const { cartState,addItem } = useCart();
   const {addItemToWishlist,wishlistState} =useWishlist();
@@ -74,7 +75,7 @@ export const ProductDetailCard = ({ product }) => {
       <div className="featuresTable">
         <h2>Product Details</h2>
         {featuresList.map((feature, index) => (
-          <p _id={index} className="featureEntry">
+          <p _id={index} className="featureEntry" key={index}>
             <span className="feature">{feature[0]}</span>
             <span className="featureValue">{feature[1]}</span>
           </p>

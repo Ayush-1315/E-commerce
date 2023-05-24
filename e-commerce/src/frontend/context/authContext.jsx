@@ -10,6 +10,7 @@ import { userDetails } from "../services/getUser";
 import { createUser } from "../services/createUser";
 import { initialUser, authReducerFun } from "../reducers/authReducer";
 import { setData } from "../services/setLocal";
+
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [authState, authDispatch] = useReducer(authReducerFun, initialUser);

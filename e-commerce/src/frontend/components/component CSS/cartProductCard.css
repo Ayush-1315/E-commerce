@@ -1,7 +1,7 @@
 .cartCard{
     display: flex;
-    width:40%;
-    margin:auto;
+    width:100%;
+    margin:1rem;
     border:1px solid red;
 }
 .cartDisplayImage{

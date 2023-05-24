@@ -2,8 +2,9 @@ import { ProductCard } from "../../components/productCard";
 import { useProducts } from "../../context/productsContext";
 import { Filters } from "../../components/filters";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { useEffect } from "react";
-
+import SearchError from "../../../images/notFound.png";
 import "./products.css";
 export const Products = () => {
   const { string } = useParams();
@@ -15,16 +16,21 @@ export const Products = () => {
   }, []);
   const { filtered } = useProducts();
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex",minHeight:"72vh"}}>
+      {filtered?.length !== 0 ? (<>
       <Filters />
-      {filtered?.length !== 0 ? (
         <ul className="productsHolder">
           {filtered?.map((product, index) => (
             <ProductCard product={product} key={index} />
           ))}
         </ul>
+        </>
       ) : (
-        <h1>Nothing to show here...</h1>
+        <div>
+          <img src={SearchError} alt="search Error" />
+        <h1>No matches found</h1>
+        <Link to="/" onClick={()=>filterDispatch({ type: "RESET_FILTERS" })}>Go Back</Link>
+        </div>
       )}
     </div>
   );
