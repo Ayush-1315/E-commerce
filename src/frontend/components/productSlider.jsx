@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef} from "react";
 
 export const Slider=()=>{
     const slides=[
@@ -17,20 +17,17 @@ export const Slider=()=>{
         }
     ]
     const totalSlides=slides.length;
+    const sliders=useRef(totalSlides);
+
     const [currentSlide,setCurrentSilder]=useState(0);
     const slide=(slideNo)=>{
         return {transform:`translate(-${slideNo*100}vw)`,width:`${totalSlides*100}%`}
     }
-    const nextSlide=()=>{
-        setCurrentSilder((prev)=>prev===totalSlides-1?0:prev+1);
-    }
+    const nextSlide=()=>setCurrentSilder((prev)=>prev===totalSlides-1?0:prev+1);
     const prevSlide=()=>{
         setCurrentSilder((prev)=>prev===0?totalSlides-1:prev-1);
     }
-    useEffect(()=>{
-        setInterval(()=>{nextSlide()},3000);
-
-    },[]);
+    useEffect(()=> {setInterval(()=>{setCurrentSilder((prev)=>prev===sliders.current-1?0:prev+1);},3000)},[]);
  
     return <div className="Slider">
         <ul style={slide(currentSlide)}>
