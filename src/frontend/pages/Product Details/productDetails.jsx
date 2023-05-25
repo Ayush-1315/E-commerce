@@ -13,6 +13,7 @@ export const Product = () => {
         try{
             const response=await productDetails(S_Id.current);
             setProduct(response);
+            document.title=`${response?.title} | ShopsyCart`;
         }
         catch (e){
             console.log(e);

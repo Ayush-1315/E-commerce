@@ -1,7 +1,11 @@
+import {useEffect} from "react";
 import { Categories } from "../../components/categories";
 import { Slider } from "../../components/productSlider";
 import { Arrivals } from "../../components/arrivals";
 export const Home = () => {
+  useEffect(()=>{
+    document.title="ShopsyCart"
+  })
   return (
     <div>
       <Slider />

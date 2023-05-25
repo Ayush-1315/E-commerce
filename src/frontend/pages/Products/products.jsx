@@ -15,6 +15,7 @@ export const Products = () => {
     if (searchString.current !== "" && searchString.current !== undefined) {
       dispatchFunction.current({ type: "FILTER_BY_SEARCH", payload: searchString.current});
     }
+    document.title="Products | ShopsyCart";
   }, []);
   const { filtered } = useProducts();
   return (

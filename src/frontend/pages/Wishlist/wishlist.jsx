@@ -1,7 +1,11 @@
-import { WishListCard } from "../../components/wishlistCard"
+import { useEffect } from "react";
+import { WishListCard } from "../../components/wishlistCard";
 import { useWishlist } from "../../context/wishistContext";
 import { EmptyState } from "../../components/emptyState";
 export const Wishlist=()=>{
+    useEffect(()=>{
+        document.title="Wishlist | ShopsyCart";
+    })
     const {wishlistState}=useWishlist();
     const encodedToken=localStorage.getItem("token");
     const wishlistEmpty=wishlistState.length===0;

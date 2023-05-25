@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import { CartProductCard } from "../../components/cartProduct";
 import { EmptyState } from "../../components/emptyState";
 import { PriceCard } from "../../components/priceCard";
 import { useCart } from "../../context/cartContext";
 export const Cart = () => {
+  useEffect(()=>{
+    document.title="Cart | ShopsyCart";
+  })
   const { cartState } = useCart();
   const encodedToken = localStorage.getItem("token");
   const cartEmpty = cartState.length === 0;

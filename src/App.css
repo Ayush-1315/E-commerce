@@ -4,8 +4,7 @@
   overflow-x: hidden;
 }
 .App {
-  /* background-color: rgb(240, 242, 245); */
-  background-color: green;
+  background-color: rgb(240, 242, 245);
   text-align: center;
   position: relative;
   min-height: 100vh;
