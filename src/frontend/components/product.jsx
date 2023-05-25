@@ -2,7 +2,7 @@ import "./component CSS/productDetailCard.css";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/cartContext";
 import { useWishlist } from "../context/wishistContext";
-import { notify } from "../../App";
+
 export const ProductDetailCard = ({ product }) => {
   const { cartState,addItem } = useCart();
   const {addItemToWishlist,wishlistState} =useWishlist();

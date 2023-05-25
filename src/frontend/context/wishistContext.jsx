@@ -1,4 +1,4 @@
-import { useEffect, createContext, useContext, useReducer } from "react";
+import { useEffect, createContext, useContext, useReducer,useRef } from "react";
 import { getWishList } from "../services/getWishlistItems";
 import { addProductToWishlist } from "../services/addProductToWishlist";
 import { wishlist, wishlistReducerFun } from "../reducers/wishlistReducer";
@@ -12,7 +12,8 @@ export const WishlistProvider = ({ children }) => {
     wishlist
   );
   const { authState } = useAuth();
-  const token = localStorage.getItem("token");
+  const storedToken = localStorage.getItem("token");
+  const token=useRef(storedToken)
   const getUserWishlist = async (searchToken) => {
     try {
       const wishlist = await getWishList(searchToken);
@@ -22,9 +23,9 @@ export const WishlistProvider = ({ children }) => {
     }
   };
   const addItemToWishlist = async (product) => {
-    if (token) {
+    if (token.current) {
       try {
-        const updatedWishlist = await addProductToWishlist(product, token);
+        const updatedWishlist = await addProductToWishlist(product, token.current);
         wishlistDispatch({ type: "LOAD_CART", payload: updatedWishlist });
         notify("Added to wishlist");
       } catch (e) {
@@ -35,9 +36,9 @@ export const WishlistProvider = ({ children }) => {
     }
   };
   const removeWishlistProduct = async (productID) => {
-    if (token) {
+    if (token.current) {
       try {
-        const updatedWishlist = await removeFromWishlist(productID, token);
+        const updatedWishlist = await removeFromWishlist(productID, token.current);
         wishlistDispatch({ type: "LOAD_CART", payload: updatedWishlist });
       } catch (e) {
         console.log(e);
@@ -45,8 +46,8 @@ export const WishlistProvider = ({ children }) => {
     }
   };
   useEffect(() => {
-    if (token) {
-      getUserWishlist(token);
+    if (token.current) {
+      getUserWishlist(token.current);
     }
   }, [authState]);
   return (

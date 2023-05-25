@@ -3,15 +3,17 @@ import { useProducts } from "../../context/productsContext";
 import { Filters } from "../../components/filters";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect,useRef } from "react";
 import SearchError from "../../../images/notFound.png";
 import "./products.css";
 export const Products = () => {
   const { string } = useParams();
   const { filterDispatch } = useProducts();
+  const dispatchFunction=useRef(filterDispatch);
+  const searchString=useRef(string);
   useEffect(() => {
-    if (string !== "" && string !== undefined) {
-      filterDispatch({ type: "FILTER_BY_SEARCH", payload: string});
+    if (searchString.current !== "" && searchString.current !== undefined) {
+      dispatchFunction.current({ type: "FILTER_BY_SEARCH", payload: searchString.current});
     }
   }, []);
   const { filtered } = useProducts();

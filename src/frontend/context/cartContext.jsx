@@ -3,6 +3,7 @@ import {
   createContext,
   useContext,
   useReducer,
+  useRef
 } from "react";
 import { cart, cartReducerFun } from "../reducers/cartReducer";
 import { error,notify } from "../../App";
@@ -16,7 +17,8 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const { authState } = useAuth();
   const [cartState, cartDispatch] = useReducer(cartReducerFun, cart);
-  const token = localStorage.getItem("token");
+  const storedToken = localStorage.getItem("token");
+  const token=useRef(storedToken)
   const getUserCart = async (searchToken) => {
     try {
       const cart = await getCart(searchToken);
@@ -26,9 +28,9 @@ export const CartProvider = ({ children }) => {
     }
   };
   const addItem = async (product) => {
-    if (token) {
+    if (token.current) {
       try {
-        const updatedCart = await addProductToCart(product, token);
+        const updatedCart = await addProductToCart(product, token.current);
         cartDispatch({ type: "LOAD_CART", payload: updatedCart });
         notify("Added to cart");
       } catch (e) {
@@ -40,9 +42,9 @@ export const CartProvider = ({ children }) => {
     }
   };
   const increaseProductQty=async(productID)=>{
-    if(token){
+    if(token.current){
        try{
-         const updatedCart=await increaseQty(productID,token);
+         const updatedCart=await increaseQty(productID,token.current);
          cartDispatch({ type: "LOAD_CART", payload: updatedCart });
          
     }
@@ -52,9 +54,9 @@ export const CartProvider = ({ children }) => {
     }
   }
   const decreaseProductQty=async(productID)=>{
-    if(token){
+    if(token.current){
         try{
-          const updatedCart=await decreaseQty(productID,token);
+          const updatedCart=await decreaseQty(productID,token.current);
           cartDispatch({ type: "LOAD_CART", payload: updatedCart });
      }
      catch(e){
@@ -63,9 +65,9 @@ export const CartProvider = ({ children }) => {
      }
   }
   const removeCartProduct=async(productID)=>{
-    if(token){
+    if(token.current){
         try{
-          const updatedCart=await removeFromCart(productID,token);
+          const updatedCart=await removeFromCart(productID,token.current);
           cartDispatch({ type: "LOAD_CART", payload: updatedCart });
      }
      catch(e){
@@ -73,9 +75,10 @@ export const CartProvider = ({ children }) => {
      }
      }
   }
+  
   useEffect(() => {
-    if (token) {
-      getUserCart(token);
+    if (token.current) {
+      getUserCart(token.current);
     }
   }, [authState]);
   return (
