@@ -298,4 +298,35 @@ export const products = [
     powerCord:"1.62m"
    }
   },
+  {
+        _id:"fb5b277e-fb7c-11ed-be56-0242ac120002",
+        title:"vivo T2x 5G (Glimmer Black, 128 GB)  (6 GB RAM)",
+        seller:"Nameipic",
+        price:"₹18,999",
+        offerPrice:"₹13,999",
+        discount:"26% off",
+        category:"mobiles",
+        image:"https://shorturl.at/dem68",
+        rating:"4.5",
+        features:
+        { 
+         "In Box":"Handset, USB Power Adapter, USB Cable, Sim Eject Tool, Phone Case, Protective Film (Applied), Documentation",
+         Model:"V2253",
+         "Model Name":"T2x 5G",
+         Color:"Glimmer Black",
+         "SIM Type":"Dual Sim",
+         Display:"16.71 cm (6.58 inch)",
+         Resolution:"2408 x 1080 Pixels",
+         OS:"Android 13",
+         Processor:"Dimensity 6020",
+         "Processor Core":"Octa Core",
+         Storage:"128 GB",
+         RAM:"6 GB",
+         "Primary Camera":"50MP + 2MP",
+         "Secondary Camera":"8MP Front Camera",
+         "Netwrork Type":"5G, 4G, 3G",
+         "Micro USB Version":"USB (Type C)",
+         "Wi-Fi version":"Supports 2.4 GHz and 5 GHz Dual Band",
+        }
+       },
   ]
