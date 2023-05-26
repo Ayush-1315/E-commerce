@@ -2,7 +2,7 @@ const initialFilter = {
   sortBy: "",
   categories: [],
   rating: 1,
-  maxPrice: 10000,
+  maxPrice: 100000,
   search: "",
 };
 const filterReducerFunction = (state, action) => {

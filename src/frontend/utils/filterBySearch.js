@@ -15,10 +15,10 @@ export const filterProducts = (allProducts, filters) => {
           );
         })
       : allProducts;
- const categorizedProducts= filterCategory(foundProducts, categories);
- const rangedProducts=pricedProducts(categorizedProducts,maxPrice);
- const rateProducts=ratedProducts(rangedProducts,rating);
- return sortedProducts(rateProducts,sortBy);
+      const categorizedProducts= filterCategory(foundProducts, categories);
+      const rangedProducts=pricedProducts(categorizedProducts,maxPrice);
+      const rateProducts=ratedProducts(rangedProducts,rating);
+      return sortedProducts(rateProducts,sortBy);
 
 
 };
