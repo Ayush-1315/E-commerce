@@ -1,41 +1,24 @@
-import {useEffect} from "react";
+import { useEffect } from "react";
 import { Categories } from "../../components/categories";
 import { Slider } from "../../components/productSlider";
 import { Arrivals } from "../../components/arrivals";
+import { useProducts } from "../../context/productsContext";
+import { Loader } from "../../components/loader";
 export const Home = () => {
-  useEffect(()=>{
-    document.title="ShopsyCart"
-  })
+  useEffect(() => {
+    document.title = "ShopsyCart";
+  });
+  const { allCategories } = useProducts();
+  
   return (
     <div>
-      <Slider />
-      <Categories />
-      {/* <div
-        style={{
-          display: "flex",
-          width: "100%",
-          justifyContent: "center",
-          marginTop: "1rem",
-        }} */}
-      {/* > */}
-        {/* <div
-          style={{
-            width: "40%",
-            height: "30vh",
-            backgroundColor: "grey",
-            margin: "0.5rem 1rem",
-          }}
-        ></div>
-        <div
-          style={{
-            width: "40%",
-            height: "30vh",
-            backgroundColor: "grey",
-            margin: "0.5rem 1rem",
-          }}
-        ></div> */}
-      {/* </div> */}
-      <Arrivals/>
+      {allCategories.length===0?<Loader/>:
+        <>
+          <Slider />
+          <Categories />
+          <Arrivals />
+        </>
+      }
     </div>
   );
 };

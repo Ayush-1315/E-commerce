@@ -5,8 +5,6 @@ import { useProducts } from "../context/productsContext";
 
 export const Arrivals = () => {
   const { receivedProducts } = useProducts();
-
-  console.log(receivedProducts);
   const getArrivals=()=>receivedProducts[Math.floor(Math.random() * receivedProducts.length)];
   const product1 =getArrivals();
   const product2 =getArrivals();

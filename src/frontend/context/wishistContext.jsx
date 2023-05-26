@@ -1,4 +1,4 @@
-import { useEffect, createContext, useContext, useReducer,useRef } from "react";
+import { useEffect, createContext, useContext, useReducer} from "react";
 import { getWishList } from "../services/getWishlistItems";
 import { addProductToWishlist } from "../services/addProductToWishlist";
 import { wishlist, wishlistReducerFun } from "../reducers/wishlistReducer";
@@ -12,8 +12,7 @@ export const WishlistProvider = ({ children }) => {
     wishlist
   );
   const { authState } = useAuth();
-  const storedToken = localStorage.getItem("token");
-  const token=useRef(storedToken)
+  const token= localStorage.getItem("token");
   const getUserWishlist = async (searchToken) => {
     try {
       const wishlist = await getWishList(searchToken);
@@ -23,9 +22,9 @@ export const WishlistProvider = ({ children }) => {
     }
   };
   const addItemToWishlist = async (product) => {
-    if (token.current) {
+    if (token) {
       try {
-        const updatedWishlist = await addProductToWishlist(product, token.current);
+        const updatedWishlist = await addProductToWishlist(product, token);
         wishlistDispatch({ type: "LOAD_CART", payload: updatedWishlist });
         notify("Added to wishlist");
       } catch (e) {
@@ -36,9 +35,9 @@ export const WishlistProvider = ({ children }) => {
     }
   };
   const removeWishlistProduct = async (productID) => {
-    if (token.current) {
+    if (token) {
       try {
-        const updatedWishlist = await removeFromWishlist(productID, token.current);
+        const updatedWishlist = await removeFromWishlist(productID, token);
         wishlistDispatch({ type: "LOAD_CART", payload: updatedWishlist });
       } catch (e) {
         console.log(e);
@@ -46,10 +45,11 @@ export const WishlistProvider = ({ children }) => {
     }
   };
   useEffect(() => {
-    if (token.current) {
-      getUserWishlist(token.current);
+    if (localStorage.getItem("token")) {
+      getUserWishlist(localStorage.getItem("token"));
     }
   }, [authState]);
+  const wishlistItems=wishlistState.length;
   return (
     <WishlistContext.Provider
       value={{
@@ -57,6 +57,7 @@ export const WishlistProvider = ({ children }) => {
         wishlistState,
         removeWishlistProduct,
         wishlistDispatch,
+        wishlistItems
       }}
     >
       {children}
