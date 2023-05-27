@@ -9,6 +9,7 @@ export const getCart = async (encodedToken) => {
       return data?.cart;
     }
   } catch (e) {
+    console.log(encodedToken)
     console.log(e);
   }
 };
