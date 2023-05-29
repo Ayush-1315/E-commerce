@@ -16,12 +16,13 @@ export const Products = () => {
       dispatchFunction.current({ type: "FILTER_BY_SEARCH", payload: searchString.current});
     }
     document.title="Products | ShopsyCart";
+    window.scrollTo(0,0);
   }, []);
   const { filtered } = useProducts();
   return (
     <div style={{ display: "flex",minHeight:"72vh"}}>
-      {filtered?.length !== 0 ? (<>
       <Filters />
+      {filtered?.length !== 0 ? (<>
         <ul className="productsHolder">
           {filtered?.map((product, index) => (
             <ProductCard product={product} key={index} />
