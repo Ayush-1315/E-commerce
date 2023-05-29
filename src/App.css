@@ -119,7 +119,7 @@
 
 .productCard {
   width: 12rem;
-  min-height: 15rem;
+  height: 18rem;
   border-radius: 0.5rem;
   position: relative;
   transition: all 0.1s;
@@ -206,7 +206,32 @@
   display: none;
 
 }
-
+.footer{
+  min-height: 8vh;
+  background-color: var(--color);
+  display: flex;
+  justify-content: space-between;
+  padding:0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  color:white;
+}
+.footer .logo{
+  font-size: 2rem;
+}
+.footerLinks a{
+  height: fit-content;
+  display: inline-block;
+  padding:0.2rem 0.3rem;
+  margin:0.4rem 0.2rem;
+  border-radius: 10px;
+}
+.footerLinks a:hover{
+  outline: 2px solid black;
+}
+.footerIcons{
+  height:1.5rem;
+}
 /* Media Queries */
 @media  (min-width:768px) {
   :root {

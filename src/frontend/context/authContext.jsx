@@ -10,6 +10,7 @@ import { userDetails } from "../services/getUser";
 import { createUser } from "../services/createUser";
 import { initialUser, authReducerFun } from "../reducers/authReducer";
 import { setData } from "../services/setLocal";
+import { error } from "../../App";
 
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
@@ -69,6 +70,7 @@ export const AuthProvider = ({ children }) => {
       }
     } catch (e) {
       console.log(e);
+      error("Invalid Credentials");
     }
   };
   const signUp = async (newUser) => {

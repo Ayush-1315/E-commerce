@@ -5,11 +5,11 @@ import { EmptyState } from "../../components/emptyState";
 export const Wishlist=()=>{
     useEffect(()=>{
         document.title="Wishlist | ShopsyCart";
-    })
+    },[])
     const {wishlistState}=useWishlist();
     const encodedToken=localStorage.getItem("token");
     const wishlistEmpty=wishlistState.length===0;
-    return <div div style={{minHeight:"72vh"}}>
+    return <div style={{minHeight:"72vh"}}>
     {
         encodedToken?
        ( wishlistEmpty?<>

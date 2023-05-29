@@ -36,7 +36,6 @@ const [allCategories,setCategories]=useState([]);
   }, []);
   const {receivedProducts } = products;
   const filtered=filterProducts(receivedProducts,filterState);
-  console.log(receivedProducts);
   return (
     <ProductsContext.Provider
       value={{ filtered, filterDispatch, filterState,receivedProducts,allCategories }}

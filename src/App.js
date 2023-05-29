@@ -42,7 +42,8 @@ function App() {
   return (
     <div className="App">
      <Navbar/>
-      <Routes>
+    <div>
+        <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/wishlist" element={
           <PrivateRoute>
@@ -68,6 +69,7 @@ function App() {
         <Route path="/*" element={<Error/>}/>
       </Routes>
       <ToastContainer/>
+    </div>
       <Footer/>
     </div>
   );

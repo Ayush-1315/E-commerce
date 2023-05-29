@@ -2,7 +2,7 @@ const initialFilter = {
   sortBy: "",
   categories: [],
   rating: 1,
-  maxPrice: 100000,
+  maxPrice:170000,
   search: "",
 };
 const filterReducerFunction = (state, action) => {
@@ -13,13 +13,6 @@ const filterReducerFunction = (state, action) => {
     case "SORT_BY_PRICE":
       return { ...state, sortBy: payload };
     case "SORT_BY_CATEGORY":
-      //   return {
-      //     ...state,
-      //     categories: {
-      //       ...state.categories,
-      //       [payload]: !state[payload],
-      //     },
-      //   };
       if (state.categories.includes(payload))
         return {
           ...state,

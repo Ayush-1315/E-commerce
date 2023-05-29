@@ -1,25 +1,45 @@
-import { useProducts } from "../context/productsContext";
+import {useState} from 'react';
+import { useProducts, } from "../context/productsContext";
 export const Filters = () => {
-  const { filterDispatch, filterState,allCategories } = useProducts();
+  const { filterDispatch, filterState, allCategories } = useProducts();
   const rating = [1, 2, 3, 4];
- 
- 
-  return (
-    <div style={{ width: "30vw", minHeight: "100vh" }}>
+  const [filterStateWaiter, setFilterStateWaiter] = useState(false);
+//  {console.log(value,filterState.categories.includes(value))}
+   return (
+    <>
+    {<div style={{ width: "15vw", minHeight: "100vh" }}>
       <form action="#">
-        <span className="filterPrice">Price</span>
+        <div>
+        <span className="filterPrice">Price</span><br />
         <input
           type="range"
-          min="10000"
-          max="100000"
-          step="10000"
-          onChange={(e) =>
+          list="tickmark"
+          min="1000"
+          max="170000"
+          step="1000"
+          onChange={(e) =>{
             filterDispatch({ type: "SET_MAX_PRICE", payload: e.target.value })
+            console.log(e.target.value);
+          }
           }
           value={filterState.maxPrice}
-        />
+          style={{width:"100%"}}
+         />
+         <datalist id="tickmark">
+          <option value="1000"></option>
+          <option value="20000"></option>
+          <option value="40000"></option>
+          <option value="60000"></option>
+          <option value="80000"></option>
+          <option value="100000"></option>
+          <option value="120000"></option>
+          <option value="140000"></option>
+          <option value="170000"></option>
+         </datalist>
+         </div>
+         <p style={{display:"flex",justifyContent:"space-between",margin:"0"}}><span>1000</span><span>170000</span></p>
         <span>Category</span>
-        {allCategories.map(({ category, value }, index) => (
+        { !filterStateWaiter  ? allCategories.map(({ category, value }, index) => (
           <span
             style={{ display: "block", textAlign: "left", margin: "0 0.5rem" }}
             key={index}
@@ -35,9 +55,11 @@ export const Filters = () => {
               }
               checked={filterState.categories.includes(value)}
             />
+            {/* {JSON.stringify(filterState.categories.includes(value))} */}
+           
             <label htmlFor={category}>{category}</label>
           </span>
-        ))}
+        )) : <>Loading</>}
         <span>Rating</span>
         {rating.map((rating,index) => (
           <span
@@ -88,9 +110,13 @@ export const Filters = () => {
         <input
           type="reset"
           value="Clear Filters"
-          onClick={() => filterDispatch({ type: "RESET_FILTERS" })}
+          onClick={() =>{
+            setFilterStateWaiter(true);
+            setTimeout(()=>{setFilterStateWaiter(false)},0)
+            filterDispatch({ type: "RESET_FILTERS" })}}
         />
       </form>
-    </div>
+    </div>}
+    </>
   );
 };

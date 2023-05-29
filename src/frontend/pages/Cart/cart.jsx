@@ -6,7 +6,7 @@ import { useCart } from "../../context/cartContext";
 export const Cart = () => {
   useEffect(()=>{
     document.title="Cart | ShopsyCart";
-  })
+  },[]);
   const { cartState } = useCart();
   const encodedToken = localStorage.getItem("token");
   const cartEmpty = cartState.length === 0;

@@ -30,9 +30,9 @@ export const ProductCard = ({product}) => {
   const itemAlreadyInCart=cartState.reduce((acc,{_id:cartProductId})=>cartProductId===_id?true:acc,false);
   const itemAlreadyInWishList=wishlistState.reduce((acc,{_id:cartProductId})=>cartProductId===_id?true:acc,false);
   return (
-    <li className="card">
+    <li className="productCard card">
       <Link to={`/products/${_id}`}>
-        <div className="productCard">
+        <div>
           <img src={image} alt={title} className="productImage" />
           <div className="cardBottom">
           <p className="productTitle">{title}</p>

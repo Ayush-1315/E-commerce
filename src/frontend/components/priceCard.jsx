@@ -1,4 +1,4 @@
-import { useState, useEffect,useRef } from "react";
+import { useState, useEffect} from "react";
 import { useCart } from "../context/cartContext";
 
 export const PriceCard = () => {
@@ -10,37 +10,28 @@ export const PriceCard = () => {
     totalPrice: 0,
   }
   const [priceDetails, setPrice] = useState(initialPricing);
-  // const update = () => {
-  //   const newObj = cartState.reduce(
-  //     (acc, { qty, price, offerPrice }) => ({
-  //       items: cartState.length,
-  //       price: (acc.price += parseInt(price.replace(",", ""))*qty),
-  //       discount: acc.discount+=(parseInt(price.replace(",", "")) - parseInt(offerPrice.replace(",", "")))*qty,
-  //       totalPrice:(acc.price-acc.discount)
-  //     }),
-  //     initialPricing
-  //   );
-  //   setPrice(cartState.length===0?initialPricing:newObj);
-  // };
-  const prices=useRef(initialPricing);
-  console.log(prices);
   useEffect(()=>{
-    const update=()=>{
+    const initialPricing={
+      items: 0,
+      price: 0,
+      discount: 0,
+      totalPrice: 0,
+    }
+    const update = () => {
       const newObj = cartState.reduce(
         (acc, { qty, price, offerPrice }) => ({
           items: cartState.length,
-          price: (acc.price += parseInt(price.replace(",", ""))*qty),
-          discount: acc.discount+=(parseInt(price.replace(",", "")) - parseInt(offerPrice.replace(",", "")))*qty,
+          price: (acc.price += parseInt(price.replaceAll(",", ""))*qty),
+          discount: acc.discount+=(parseInt(price.replaceAll(",", "")) - parseInt(offerPrice.replaceAll(",", "")))*qty,
           totalPrice:(acc.price-acc.discount)
         }),
-        prices.current
+        initialPricing
       );
-      setPrice(cartState.length===0?prices.current:newObj);
+      setPrice(cartState.length===0?initialPricing:newObj);
     };
     update() 
   },[cartState])
-  console.log(cartState);
-  console.log(priceDetails);
+
   const {items,price,discount,totalPrice}=priceDetails
   return <div className="priceCard">
     <h2>PRICE DETAILS</h2>

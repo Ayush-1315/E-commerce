@@ -1,20 +1,25 @@
-import { Link,  Navigate } from "react-router-dom";
+import { Link,  Navigate,useLocation} from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../context/authContext";
 export const LoginForm = () => {
   const { isLogin, user } = useAuth();
-  const [userCredential, setCredentials] = useState({
-    email: "",
-    password: "",
-    remeberMe: true,
-  });
+  const initialForm={
+      email: "",
+      password: "",
+      remeberMe: true,
+  }
+  const location=useLocation();
+  console.log(location)
+  const [userCredential, setCredentials] = useState({...initialForm});
   const changeHandler = (value, type) => {
     setCredentials({ ...userCredential, [type]: value });
   };
   const sendCredentials = (email, password) => {
     if (email.trim() !== "" && password.trim() !== "") {
       user(`${email}`, `${password}`);
+
     } else alert("Enter Credentials");
+    setCredentials({...initialForm})
   };
   const { email, password } = userCredential;
   return (
@@ -28,6 +33,7 @@ export const LoginForm = () => {
             name="email"
             id="email"
             onChange={(e) => changeHandler(e.target.value, "email")}
+            value={userCredential.email}
           />
           <label htmlFor="password">Password</label>
           <input
@@ -35,6 +41,7 @@ export const LoginForm = () => {
             name="password"
             id="password"
             onChange={(e) => changeHandler(e.target.value, "password")}
+            value={userCredential.password}
           />
           <input
             type="checkbox"

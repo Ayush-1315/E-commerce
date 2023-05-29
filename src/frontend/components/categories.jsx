@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import { useProducts } from "../context/productsContext";
 export const Categories = () => {
   const {filterDispatch,allCategories}=useProducts();
-  const categoriesClickHandler=(value)=>filterDispatch({type:"SORT_BY_CATEGORY",payload:value})
+  const categoriesClickHandler=(value)=>{
+    console.log("Home page filter")
+    filterDispatch({type:"SORT_BY_CATEGORY",payload:value})}
     return (
     <div>
       <ul className="categoryContainer">
