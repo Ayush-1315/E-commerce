@@ -1,4 +1,4 @@
-import { Link,  Navigate,useLocation} from "react-router-dom";
+import { Link,  Navigate} from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../context/authContext";
 export const LoginForm = () => {
@@ -8,7 +8,7 @@ export const LoginForm = () => {
       password: "",
       remeberMe: true,
   }
-  const location=useLocation();
+  // const location=useLocation();
   const [userCredential, setCredentials] = useState({...initialForm});
   const changeHandler = (value, type) => {
     setCredentials({ ...userCredential, [type]: value });

@@ -41,6 +41,6 @@ export const PriceCard = () => {
     <p>Delivery Charges FREE</p>
     <p>Total Price ₹{totalPrice}</p>
     <p>You will save  ₹{discount}</p>
-    <p><Link to="/checkout"><button>Proceed</button></Link></p>
+    <p><Link to="/check"><button>Proceed</button></Link></p>
   </div>;
 };
