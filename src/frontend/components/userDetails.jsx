@@ -11,7 +11,7 @@ export const ShowUser = () => {
   const { authDispatch, setIsLogin, authState } = useAuth();
   const { cartDispatch } = useCart();
   const { wishlistDispatch } = useWishlist();
-  const { addresses, removeAddress } = useUser();
+  const { addresses, removeAddress,orders} = useUser();
   const { firstName, lastName, gender, email } = authState;
   const [showTab, setShowTab] = useState(0);
   const [showForm, setShowForm] = useState(false);
@@ -80,7 +80,7 @@ export const ShowUser = () => {
           style={{ display: showTab === 1 ? "block" : "none" }}
           className="tabMenu"
         >
-          OrdersHere
+          {orders.length===0?"No recent purchases":orders.length}
         </div>
         <div
           style={{ display: showTab === 2 ? "block" : "none" }}

@@ -73,7 +73,10 @@ export const CartProvider = ({ children }) => {
      }
      }
   }
-  
+  const resetCart=()=>{
+    cartDispatch({type:"RESET"});
+    cartState.map(({_id})=>removeCartProduct(_id));
+  }
   useEffect(() => {
     if (localStorage.getItem("token")) {
       getUserCart(localStorage.getItem("token"));
@@ -81,7 +84,7 @@ export const CartProvider = ({ children }) => {
   }, [authState]);
   const cartItems=cartState.length;
   return (
-    <CartContext.Provider value={{ cartState, cartDispatch, addItem,increaseProductQty,decreaseProductQty,removeCartProduct,cartItems}}>
+    <CartContext.Provider value={{ cartState, cartDispatch, addItem,increaseProductQty,decreaseProductQty,removeCartProduct,resetCart,cartItems}}>
       {children}
     </CartContext.Provider>
   );

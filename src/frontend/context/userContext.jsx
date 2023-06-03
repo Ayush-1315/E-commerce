@@ -16,8 +16,11 @@ export const UserProvider = ({ children }) => {
         pinCode: localStorage.getItem("pin"),
         phone: localStorage.getItem("phone"),
       };
-    setAddresses([currentAddress])
- },[authState])
+    setAddresses([currentAddress]);
+    setOrders([]);
+    console.log('Auth Working');
+ },[authState]);
+//  Address Management
   const [addresses, setAddresses] = useState([]);
   const addNewAddress = (newAddress) => {
     setAddresses([...addresses, newAddress]);
@@ -29,7 +32,8 @@ export const UserProvider = ({ children }) => {
       )
     );
   };
-  const removeAddress=(removeIndex)=>setAddresses(addresses=>addresses.filter((_,index)=>index!==removeIndex))
+  const removeAddress=(removeIndex)=>setAddresses(addresses=>addresses.filter((_,index)=>index!==removeIndex));
+  // Orders Management
   return (
     <UserContext.Provider
       value={{

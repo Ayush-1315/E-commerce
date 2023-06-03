@@ -32,16 +32,15 @@ export const AddressForm = ({
   }, [receivedAddress]);
   const reset = (e) => {
     e.preventDefault();
-    setUpdateIndex(-1);
+    if (typeof setUpdateIndex === "function") setUpdateIndex(-1);
+    if (typeof setFormFun === "function") setFormFun(false);
+    if (typeof setFormAddress === "function") setFormAddress(undefined);
     setNewAddress(initialData);
-    setFormFun(false);
-    setFormAddress(undefined);
   };
   const submitForm = (e) => {
     e.preventDefault();
     if (receivedAddress !== undefined) updateAddress(updateIndex, newAddress);
     else addNewAddress(newAddress);
-    console.log(isEmptyForm)
     reset(e);
   };
   const isEmptyForm = Object.values(newAddress).reduce(
@@ -61,10 +60,10 @@ export const AddressForm = ({
         className="addressForm"
       >
         <div className="addressFormHeader">
-        <h2>Add New Address</h2>
-        <button onClick={(e) => reset(e)} className="formClose"><span className="material-symbols-outlined">
-close
-</span></button>
+          <h2>Add New Address</h2>
+          <button onClick={(e) => reset(e)} className="formClose">
+            <span className="material-symbols-outlined">close</span>
+          </button>
         </div>
         <form action="#">
           <fieldset className="parent-wrapper">
@@ -145,53 +144,51 @@ close
           <fieldset className="parent-wrapper">
             <legend>Address</legend>
             <fieldset className="input-wrapper">
-            <legend>City</legend>
-            <input
-            type="text"
-            id="city"
-            placeholder="City"
-            onChange={(e) => changeHandler("city", e.target.value, true)}
-            value={newAddress.city}
-          />
+              <legend>City</legend>
+              <input
+                type="text"
+                id="city"
+                placeholder="City"
+                onChange={(e) => changeHandler("city", e.target.value, true)}
+                value={newAddress.city}
+              />
             </fieldset>
-          <fieldset className="input-wrapper">
-            <legend>State</legend>
-          <input
-            type="text"
-            id="state"
-            placeholder="State"
-            onChange={(e) => changeHandler("state", e.target.value, true)}
-            value={newAddress.state}
-          />
-          </fieldset>
-         <fieldset className="input-wrapper">
-            <legend>Country</legend>
-            <input
-            type="text"
-            id="country"
-            placeholder="Country"
-            onChange={(e) => changeHandler("country", e.target.value, true)}
-            value={newAddress.country}
-          />
-         </fieldset>
-          <fieldset className="input-wrapper">
-          <legend>Pin Code</legend>
-          <input
-            type="text"
-            id="pin"
-            placeholder="Pin Code"
-            onChange={(e) => changeHandler("pinCode", e.target.value, true)}
-            value={newAddress.pinCode}
-          />
-
-          </fieldset>
+            <fieldset className="input-wrapper">
+              <legend>State</legend>
+              <input
+                type="text"
+                id="state"
+                placeholder="State"
+                onChange={(e) => changeHandler("state", e.target.value, true)}
+                value={newAddress.state}
+              />
+            </fieldset>
+            <fieldset className="input-wrapper">
+              <legend>Country</legend>
+              <input
+                type="text"
+                id="country"
+                placeholder="Country"
+                onChange={(e) => changeHandler("country", e.target.value, true)}
+                value={newAddress.country}
+              />
+            </fieldset>
+            <fieldset className="input-wrapper">
+              <legend>Pin Code</legend>
+              <input
+                type="text"
+                id="pin"
+                placeholder="Pin Code"
+                onChange={(e) => changeHandler("pinCode", e.target.value, true)}
+                value={newAddress.pinCode}
+              />
+            </fieldset>
           </fieldset>
           <div className="addressFormFooter">
-          <button onClick={(e) => submitForm(e)} disabled={isEmptyForm}>
-            {updateIndex === -1 ? "Add Address" : "Update"}
-          </button>
+            <button onClick={(e) => submitForm(e)} disabled={isEmptyForm}>
+              {updateIndex === -1 ? "Add Address" : "Update"}
+            </button>
           </div>
-          
         </form>
       </div>
     </>

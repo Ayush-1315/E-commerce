@@ -12,7 +12,10 @@ import { UserPage } from "./frontend/pages/User/viewUser";
 import { Signup } from "./frontend/pages/Signup/signup";
 import {Product} from "./frontend/pages/Product Details/productDetails";
 import { ToastContainer, toast } from 'react-toastify';
+import { OrderSummary } from "./frontend/pages/Checkout/orderSummary";
+import { Error } from "./frontend/pages/Error Page/errorPage";
 import Mockman from "mockman-js";
+import { OrderSuccess } from "./frontend/pages/Order Success/orderSuccessPage";
 export const notify=(message)=>{
   toast.success(message, {
       position: "top-center",
@@ -41,7 +44,7 @@ function App() {
   return (
     <div className="App">
      <Navbar/>
-    <div>
+    <div style={{minHeight:"100vh"}}>
         <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/wishlist" element={
@@ -65,8 +68,9 @@ function App() {
             <Cart/>
           </PrivateRoute>
         } />
-        {/* <Route path="/*" element={<Error/>}/> */}
-
+        <Route path="/*" element={<Error/>}/>
+        <Route path="/checkout" element={<OrderSummary/>}/>
+        <Route path="/success" element={<OrderSuccess/>}/>
       </Routes>
       <ToastContainer/>
     </div>

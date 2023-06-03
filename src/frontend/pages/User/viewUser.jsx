@@ -5,7 +5,7 @@ const name=useRef(`${localStorage.firstName} ${ localStorage.lastName}`);
 useEffect(()=>{
     document.title=`${name.current} | ShopsyCart`;
 },[])
-return<div style={{height:"72vh",position:"relative"}}>
+return<div>
 <ShowUser/>
 </div>
 }
