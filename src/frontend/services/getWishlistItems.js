@@ -9,7 +9,6 @@ export const getWishList=async(encodedToken)=>{
           return data?.wishlist;
         }
       } catch (e) {
-        console.log(encodedToken);
-        console.log(e);
+        return [];  
       }
 }

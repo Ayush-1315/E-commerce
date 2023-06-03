@@ -1,0 +1,103 @@
+.userMenu{
+    width:60%;
+    background-color: white;
+    padding:0.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px black;
+    margin: 2rem auto;
+}
+.userTabs{
+    display: flex;
+}
+.tabs{
+    width:calc(35%);
+    padding:0.5rem 1rem;
+    cursor: pointer;
+    border-radius:5px 5px 0 0;
+}
+.active-tab{
+    border-left:2px solid grey ;
+    border-top: 2px solid grey ;
+    border-right: 2px solid grey ;
+    font-weight: bold;
+}
+.avatar{
+    height: 10rem;
+}
+.addressCards{
+    text-align: left;
+    border: 2px solid var(--color);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0.5rem;
+}
+.tabMenu{
+    padding:1rem;
+}
+.formBackground{
+    position: absolute;
+    margin: 0;
+    background: rgb(0 0 0 / 40%);
+    display: block;
+    top:0;
+    left:0;
+    height: 100vh;
+    width: 100vw;
+}
+.cardInfo{
+    padding:0;
+    margin: 0.5rem;
+}
+.cardName{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.cardFooter{
+    display: flex;
+    justify-content: flex-end;
+    gap:1rem;
+}
+.cardFooter button:nth-child(1){
+    color: green;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 2px solid green;
+}
+.cardFooter button:nth-child(2){
+    border-radius: 5px;
+    border: none;
+    background: red;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border:2px solid white;
+}
+.addAddressBtn{
+    margin: 1rem;
+    padding: 0.5rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+.addAddressBtn:hover{
+    background-color: #0e7664;
+}
+.cardFooter button:nth-child(1):hover{
+    background-color: green;
+    color:white;
+}
+.cardFooter button:nth-child(2):hover{
+    background-color: white;
+    color:red;
+    border: 2px solid red;
+}

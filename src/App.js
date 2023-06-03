@@ -11,7 +11,6 @@ import { PrivateRoute } from "./frontend/components/privateRoute";
 import { UserPage } from "./frontend/pages/User/viewUser";
 import { Signup } from "./frontend/pages/Signup/signup";
 import {Product} from "./frontend/pages/Product Details/productDetails";
-import { Error } from "./frontend/components/errorPage";  
 import { ToastContainer, toast } from 'react-toastify';
 import Mockman from "mockman-js";
 export const notify=(message)=>{
@@ -56,7 +55,7 @@ function App() {
         <Route path="/mockman" element={ <Mockman />}/>
         <Route path="/products/:productID" element={<Product/>}/>
         <Route path="/signup" element={<Signup/>}/>
-        <Route path="/user/*" element={
+        <Route path="/user" element={
           <PrivateRoute>
             <UserPage/>
           </PrivateRoute>
@@ -66,7 +65,8 @@ function App() {
             <Cart/>
           </PrivateRoute>
         } />
-        <Route path="/*" element={<Error/>}/>
+        {/* <Route path="/*" element={<Error/>}/> */}
+
       </Routes>
       <ToastContainer/>
     </div>

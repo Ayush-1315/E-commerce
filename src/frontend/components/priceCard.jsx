@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState, useEffect} from "react";
 import { useCart } from "../context/cartContext";
 
@@ -40,6 +41,6 @@ export const PriceCard = () => {
     <p>Delivery Charges FREE</p>
     <p>Total Price ₹{totalPrice}</p>
     <p>You will save  ₹{discount}</p>
-    <p><button>Place Order</button></p>
+    <p><Link to="/checkout"><button>Proceed</button></Link></p>
   </div>;
 };

@@ -9,33 +9,39 @@ export const Navbar = () => {
   let navigate = useNavigate();
   const { cartItems } = useCart();
   const { wishlistItems } = useWishlist();
-  const { isLogin, authState } = useAuth();
-  const { filterDispatch } = useProducts();
+  const { isLogin} = useAuth();
+  const { filterDispatch,sideMenu,setSideMenu } = useProducts();
   const [search, setSearch] = useState("");
-  const [showSearchBar,setShow]=useState(window.screen.width>=768);
-  const { firstName } = authState;
+  const [showSearchBar, setShow] = useState(window.screen.width >= 768);
   const changeHandler = (e) => setSearch(e.target.value);
   const searchString = () => {
     if (search.trim() !== "") {
       filterDispatch({ type: "FILTER_BY_SEARCH", payload: search });
+      setSideMenu({...sideMenu,menu:true})
       setSearch("");
       navigate(`/search/${search}`);
-      setShow(prev=>!prev);
+      setShow((prev) => !prev);
     }
   };
   const sendString = (e) => {
     e.key === "Enter" && searchString();
   };
-  const showBar=()=>{
-    setShow(prev=>!prev);
-  }
+  const showBar = () => {
+    setShow((prev) => !prev);
+  };
+  const showFilters=()=>setSideMenu({...sideMenu,sidemenu:!sideMenu.sidemenu})
+  const {menu}=sideMenu;
   return (
     <nav>
-      <div  className="Navbar">
+      <div className="Navbar">
         <div className="logo">
+          <span className="material-symbols-outlined showMenu" style={{display:menu?"inline-block":"none"}} onClick={showFilters}>menu</span>
           <NavLink
             to="/"
-            onClick={() => filterDispatch({ type: "RESET_FILTERS" })}
+            onClick={() => {
+              filterDispatch({ type: "RESET_FILTERS" })
+              setSideMenu({sidemenu:false,menu:false})
+            }}
           >
             ShopsyCart
           </NavLink>
@@ -54,12 +60,12 @@ export const Navbar = () => {
           </button>
         </div>
         <div className="navbarOptions">
-        <button className="searchBtn optionHolder search" onClick={showBar}>
+          <button className="searchBtn optionHolder search" onClick={showBar}>
             {" "}
             <span className="material-symbols-outlined">search</span>
           </button>
           {isLogin ? (
-            <Link to={`/user/${firstName}`} className="optionHolder">
+            <Link to={`/user`} className="optionHolder">
               <span className="material-symbols-outlined">account_circle</span>
             </Link>
           ) : (
@@ -83,7 +89,10 @@ export const Navbar = () => {
           </NavLink>
         </div>
       </div>
-      <div className="searchScreen" style={{display:showSearchBar?"block":"none"}}>
+      <div
+        className="searchScreen"
+        style={{ display: showSearchBar ? "block" : "none" }}
+      >
         <div className="searchBarMob">
           <input
             type="text"

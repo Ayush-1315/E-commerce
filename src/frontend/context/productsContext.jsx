@@ -18,6 +18,10 @@ export const ProductsProvider = ({ children }) => {
     filterReducerFunction,
     initialFilter
   );
+  const [sideMenu,setSideMenu]=useState({
+    menu:false,
+    sidemenu:false
+  });
   const [products, setProducts] = useState({
     showProducts: [],
     receivedProducts: [],
@@ -38,7 +42,7 @@ const [allCategories,setCategories]=useState([]);
   const filtered=filterProducts(receivedProducts,filterState);
   return (
     <ProductsContext.Provider
-      value={{ filtered, filterDispatch, filterState,receivedProducts,allCategories }}
+      value={{ filtered, filterDispatch, filterState,receivedProducts,allCategories,sideMenu,setSideMenu}}
     >
       {children}
     </ProductsContext.Provider>

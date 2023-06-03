@@ -12,7 +12,7 @@
     border:1px solid grey;
     border-radius: 5px;
     padding:0.5rem; 
-    width:30%;
+    width:50vh;
     height:20rem;
     background-color: white;
 }
@@ -25,7 +25,7 @@
     max-width: 15rem;
 }
 .detailsHolder{
-    width:50%;
+    width:95%;
     text-align: left;
 }
 .offer{
@@ -75,3 +75,31 @@
     border-left: 1px solid grey;
     
 }
+/* Media Queries */
+@media  (min-width:768px) {
+    .detailsHolder{
+        width:50%;
+        text-align: left;
+    }
+  }
+  
+  @media screen and (min-width:1024px) {
+    :root {
+      --navbar-font-size: 3rem;
+      --font-size:1rem;
+      --icons:2rem;
+    }
+  }
+  @media screen and (min-width:1440px) {
+    :root {
+      --font-size:1.4rem;
+    }
+  }
+  @media screen and (min-width:2560px) {
+    :root {
+      --navbar-font-size: 5rem;
+      --font-size:2.4rem;
+      --icons:4rem;
+    }
+  }
+  

@@ -9,7 +9,6 @@ export const LoginForm = () => {
       remeberMe: true,
   }
   const location=useLocation();
-  console.log(location)
   const [userCredential, setCredentials] = useState({...initialForm});
   const changeHandler = (value, type) => {
     setCredentials({ ...userCredential, [type]: value });

@@ -5,7 +5,6 @@ export const createUser=async(user)=>{
 const response=await axios.post("/api/auth/signup",{
     ...user
 });
-console.log(response);
 return response.data
  }
  catch(e){

@@ -8,7 +8,7 @@ import SearchError from "../../../images/notFound.png";
 import "./products.css";
 export const Products = () => {
   const { string } = useParams();
-  const { filterDispatch } = useProducts();
+  const { filterDispatch,sideMenu} = useProducts();
   const dispatchFunction=useRef(filterDispatch);
   const searchString=useRef(string);
   useEffect(() => {
@@ -19,9 +19,15 @@ export const Products = () => {
     window.scrollTo(0,0);
   }, []);
   const { filtered } = useProducts();
+  const {sidemenu}=sideMenu;
   return (
     <div style={{ display: "flex",minHeight:"72vh"}}>
+      <div className="sideBar" style={{display:sidemenu?"block":"none"}}>
       <Filters />
+      </div>
+      <div className="sideBar" style={{display:window.screen.width>="768"?"block":"none"}}>
+      <Filters />
+      </div>
       {filtered?.length !== 0 ? (<>
         <ul className="productsHolder">
           {filtered?.map((product, index) => (

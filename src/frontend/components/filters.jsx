@@ -4,10 +4,9 @@ export const Filters = () => {
   const { filterDispatch, filterState, allCategories } = useProducts();
   const rating = [1, 2, 3, 4];
   const [filterStateWaiter, setFilterStateWaiter] = useState(false);
-//  {console.log(value,filterState.categories.includes(value))}
    return (
     <>
-    {<div style={{ width: "15vw", minHeight: "100vh" }}>
+    {<div className='sidebarFilter'>
       <form action="#">
         <div>
         <span className="filterPrice">Price</span><br />
@@ -55,8 +54,6 @@ export const Filters = () => {
               }
               checked={filterState.categories.includes(value)}
             />
-            {/* {JSON.stringify(filterState.categories.includes(value))} */}
-           
             <label htmlFor={category}>{category}</label>
           </span>
         )) : <>Loading</>}

@@ -12,7 +12,6 @@ export const Cart = () => {
   const cartEmpty = cartState.length === 0;
   return (
     <div style={{ minHeight: "72vh", display: "flex", flexWrap: "wrap" }}>
-      {/* <div style={{ width: "100%" }}> */}
         {encodedToken ? (
           cartEmpty ? (
             <>
@@ -35,7 +34,7 @@ export const Cart = () => {
         ) : (
           <h1>Login First</h1>
         )}
+  
       </div>
-    // </div>
   );
 };

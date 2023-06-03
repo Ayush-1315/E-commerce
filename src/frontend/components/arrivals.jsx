@@ -4,7 +4,7 @@ import "./component CSS/arrivals.css";
 import { useProducts } from "../context/productsContext";
 
 export const Arrivals = () => {
-  const { receivedProducts } = useProducts();
+  const { receivedProducts,sideMenu,setSideMenu } = useProducts();
   const getArrivals=()=>receivedProducts[Math.floor(Math.random() * receivedProducts.length)];
   const product1 =getArrivals();
   const product2 =getArrivals();
@@ -18,7 +18,7 @@ export const Arrivals = () => {
     <div className="arrivalContainer">
    {
     arrivalProducts.map((product,index)=><div className="arrivals" key={index}>
-        <Link to={`/products/${product?._id}`}>
+        <Link to={`/products/${product?._id}`} onClick={()=>setSideMenu({...sideMenu,menu:true})}>
         <img src={product?.image} alt="product" />
         <div className="overlay">
             <div>

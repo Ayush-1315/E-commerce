@@ -10,7 +10,7 @@ import { userDetails } from "../services/getUser";
 import { createUser } from "../services/createUser";
 import { initialUser, authReducerFun } from "../reducers/authReducer";
 import { setData } from "../services/setLocal";
-import { error } from "../../App";
+import { error, notify } from "../../App";
 
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
@@ -74,7 +74,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
   const signUp = async (newUser) => {
-    console.log(newUser);
+    // console.log(newUser);
     try {
       const response = await createUser(newUser);
       if (response?.encodedToken === undefined) throw response;
@@ -120,6 +120,7 @@ export const AuthProvider = ({ children }) => {
             ? navigate("/")
             : navigate(location?.state?.pathname);
         }
+        notify("Logged In");
       }
     } catch (e) {
       console.log(e);

@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useProducts } from "../context/productsContext";
 export const Categories = () => {
-  const {filterDispatch,allCategories}=useProducts();
+  const {filterDispatch,allCategories,setSideMenu,sideMenu}=useProducts();
   const categoriesClickHandler=(value)=>{
-    console.log("Home page filter")
-    filterDispatch({type:"SORT_BY_CATEGORY",payload:value})}
+    filterDispatch({type:"SORT_BY_CATEGORY",payload:value})
+    setSideMenu({...sideMenu,menu:true});
+  }
     return (
     <div>
       <ul className="categoryContainer">
