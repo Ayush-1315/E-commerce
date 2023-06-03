@@ -82,8 +82,9 @@ const displayRazorpay = async () => {
       return;
     }
     const options = {
+        // rzp_test_VNzbbuNCZjttNc
         // rzp_test_inOiRZzQS21nfX
-      key: "rzp_test_VNzbbuNCZjttNc",
+      key: "rzp_test_inOiRZzQS21nfX",
       amount: Number(priceDetails.totalPrice) * 100,
       currency: "INR",
       name: "ShopsyCart",
