@@ -90,7 +90,7 @@ export const OrderSummary = () => {
       // rzp_test_VNzbbuNCZjttNc
       // rzp_test_inOiRZzQS21nfX
       // rzp_test_4hPkeR34PzPm3M
-      key: "rzp_test_VNzbbuNCZjttNc",
+      key: "rzp_test_4hPkeR34PzPm3M",
       amount: Number(priceDetails.totalPrice) * 100,
       currency: "INR",
       name: "ShopsyCart",
