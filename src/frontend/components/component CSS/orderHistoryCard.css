@@ -22,6 +22,7 @@
 }
 .order-items img{
     object-fit: contain;
+    height: 10rem;
 }
 .order-items>div>div{
     width: 45%;

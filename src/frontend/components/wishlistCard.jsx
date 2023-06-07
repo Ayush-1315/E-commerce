@@ -25,10 +25,12 @@ export const WishListCard=({product})=>{
         </div>
         <div className="cartProductDetails">
             <span className="cartProductTitle">{title}</span>
-            <p><span>₹{offerPrice}</span><span>₹{price}</span></p>
+            <p className="cart-prices"><span>₹{offerPrice}</span><span>₹{price}</span></p>
             <p>{discount}</p>
+            <div className="cart-action-buttons">
             <button onClick={removeProduct}>Remove from Wishlist</button>
             <button onClick={moveToCart}>Move to Cart</button>
+            </div>
         </div>
     </div>;
 }
