@@ -1,0 +1,39 @@
+.sign-up-form{
+    background: white;
+    box-shadow: 0px 2px 2px;
+    margin:1rem auto;
+    width: 90%;
+    text-align: left;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-up-form input[type="submit"] {
+    font-weight: bold;
+    padding: 0.5rem;
+    margin: 1rem;
+    display: inline-block;
+    width: 10rem;
+    cursor: pointer;
+    color: white;
+    background-color: var(--color);
+    border-radius: 5px;
+    border: none;
+    margin: 1rem auto;
+    display: block;
+
+}
+.sign-up-form input[type="password"]{
+    outline: none;
+    border:none;
+}
+/* Media Queries */
+@media  (min-width:768px) {
+   .sign-up-form{
+    width: 60%;
+   }
+  }
+  

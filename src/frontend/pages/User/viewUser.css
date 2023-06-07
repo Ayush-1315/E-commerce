@@ -1,0 +1,156 @@
+.userMenu{
+    width:90%;
+    background-color: white;
+    padding:0.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px black;
+    margin: 2rem auto;
+}
+.userTabs{
+    display: flex;
+}
+.tabs{
+    width:calc(35%);
+    padding:0.5rem 1rem;
+    cursor: pointer;
+    border-radius:5px 5px 0 0;
+}
+.active-tab{
+    border-left:2px solid grey ;
+    border-top: 2px solid grey ;
+    border-right: 2px solid grey ;
+    font-weight: bold;
+}
+.avatar{
+    height: 10rem;
+}
+.addressCards{
+    text-align: left;
+    border: 2px solid var(--color);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0.5rem;
+}
+.tabMenu{
+    padding:1rem;
+}
+.user-log h2,.user-log p{
+margin: 0;
+}
+.user-log div{
+    width: fit-content;
+    text-align: left;
+    margin: auto;
+}
+.user-log button{
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    font-weight: bold;
+    background-color: var(--color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+}
+.user-log button span:nth-child(1){
+    width: 80%;
+}
+.formBackground{
+    position: absolute;
+    margin: 0;
+    background: rgb(0 0 0 / 40%);
+    display: block;
+    top:0;
+    left:0;
+    height: 108vh;
+    width: 100vw;
+}
+.cardInfo{
+    padding:0;
+    margin: 0.5rem;
+}
+.cardName{
+    font-size: 2rem;
+    font-weight: 500;
+}
+.cardFooter{
+    display: flex;
+    justify-content: flex-end;
+    gap:1rem;
+}
+.cardFooter button:nth-child(1){
+    color: green;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: white;
+    border: 2px solid green;
+}
+.cardFooter button:nth-child(2){
+    border-radius: 5px;
+    border: none;
+    background: red;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border:2px solid white;
+}
+.addAddressBtn{
+    margin: 1rem;
+    padding: 0.5rem;
+    font-weight: bold;
+    color: white;
+    background-color: var(--color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+.addAddressBtn:hover{
+    background-color: #0e7664;
+}
+.cardFooter button:nth-child(1):hover{
+    background-color: green;
+    color:white;
+}
+.cardFooter button:nth-child(2):hover{
+    background-color: white;
+    color:red;
+    border: 2px solid red;
+}
+/* Media Queries */
+@media  (min-width:768px) {
+    .userMenu{
+        width:60%;
+    }
+  }
+  
+  @media screen and (min-width:1024px) {
+    :root {
+      --navbar-font-size: 3rem;
+      --font-size:1rem;
+      --icons:2rem;
+    }
+  }
+  @media screen and (min-width:1440px) {
+    :root {
+      --font-size:1.4rem;
+    }
+  }
+  @media screen and (min-width:2560px) {
+    :root {
+      --navbar-font-size: 5rem;
+      --font-size:2.4rem;
+      --icons:4rem;
+    }
+  }
+  
