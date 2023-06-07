@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;1,400&display=swap');
+
+.detailCard{
+    font-family: 'Barlow Condensed', sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    padding:1rem;
+    justify-content: center;
+    gap: 1rem;
+}
+.imageHolder{
+    border:1px solid grey;
+    border-radius: 5px;
+    padding:0.5rem; 
+    width:50vh;
+    height:20rem;
+    background-color: white;
+}
+
+.productDetailImage{
+    /* height:100%;
+    width: 100%; */
+    height: 15rem;
+    min-width: 7rem;
+    max-width: 15rem;
+}
+.detailsHolder{
+    width:95%;
+    text-align: left;
+}
+.offer{
+    font-size: 2rem;
+    margin:0.5rem;
+}
+
+.price{
+    font-size: 1.5rem;
+    margin:0.5rem;
+    text-decoration: line-through;
+    color:grey;
+}
+.discount{
+    font-style: italic;
+    font-size: 1rem;
+    font-weight: bold;
+    color:rgb(53, 174, 26);
+}
+.btn{
+    display: inline-block;
+    width:40%;
+    padding:0.5rem 1rem;
+    margin:0.5rem;
+    cursor: pointer;
+    border:none;
+    border-radius: 5px;
+    color:white;
+    letter-spacing: 1px;
+    background-color: blueviolet;
+}
+.featuresTable{
+    text-align: left;
+    padding: 1rem;
+}
+.featureEntry{
+    border:1px solid grey;
+    margin:0;
+    border-radius: 2px;
+}
+.feature,.featureValue{
+    display: inline-block;
+    padding:0.5rem;
+    width:45%;
+}
+.featureValue{
+    border-left: 1px solid grey;
+    
+}
+/* Media Queries */
+@media  (min-width:768px) {
+    .detailsHolder{
+        width:50%;
+        text-align: left;
+    }
+  }
+  
+  @media screen and (min-width:1024px) {
+    :root {
+      --navbar-font-size: 3rem;
+      --font-size:1rem;
+      --icons:2rem;
+    }
+  }
+  @media screen and (min-width:1440px) {
+    :root {
+      --font-size:1.4rem;
+    }
+  }
+  @media screen and (min-width:2560px) {
+    :root {
+      --navbar-font-size: 5rem;
+      --font-size:2.4rem;
+      --icons:4rem;
+    }
+  }
+  

@@ -1,0 +1,210 @@
+:root {
+  --color: #00b495;
+  --navbar-font-size: 1.5rem;
+  --icons:1.5rem;
+  --font-size:0.8rem;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+.container{
+  min-width: 100vw;
+  min-height: 100vh;
+  /* padding:1rem; */
+}
+.App {
+  background-color: rgb(240, 242, 245);
+  text-align: center;
+  position: relative;
+  min-height: 100vh;
+}
+
+.categoryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.categoryContainer a {
+  text-decoration: none;
+}
+
+.categoryContainer li {
+  list-style: none;
+  margin: 0.5rem;
+}
+
+.categoryType {
+  display: block;
+  text-decoration: none;
+}
+.empty-page{
+  margin: auto;
+}
+.empty-page h1{
+  font-size: 1.5rem;
+  width: fit-content;
+}
+.empty-page img{
+  width: 23rem;
+}
+/* Products Card */
+.card {
+  list-style: none;
+}
+
+.card a {
+  text-decoration: none;
+  color: black;
+}
+
+.productCard {
+  width: 12rem;
+  height: 18rem;
+  border-radius: 0.5rem;
+  position: relative;
+  transition: all 0.1s;
+  padding: 0.5rem;
+  background-color: white;
+}
+
+.productCard:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8)
+}
+
+.productImage {
+  width: 90%;
+  height: 9rem;
+  object-fit: contain;
+}
+
+.productTitle {
+  white-space: nowrap;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: auto;
+  padding: 0 0.4rem;
+  color: black;
+  font-weight: bolder;
+}
+
+.productPrice {
+  margin: 0.5rem auto;
+}
+
+.discountOnCard,
+.prices {
+  margin: 0;
+  text-align: left;
+}
+
+.priceOnCard,
+.offeredPrice {
+  margin: 3px;
+}
+
+.priceOnCard {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.discountOnCard {
+  color: rgb(53, 174, 26);
+  font-weight: bold;
+}
+
+.cardBottom {
+  padding: 0.5rem;
+}
+
+.cartBtn {
+  width: 90%;
+  border: none;
+  background-color: grey;
+  color: white;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.likeButton {
+  border-radius: 50%;
+  border: none;
+  background-color: white;
+  padding: 0.3rem 0.4rem;
+  box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.likes {
+  width: 1rem;
+  height: 1rem;
+}
+
+::-webkit-scrollbar {
+  display: none;
+
+}
+.footer{
+  min-height: 8vh;
+  background-color: var(--color);
+  display: none;
+  justify-content: space-between;
+  padding:0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  color:white;
+}
+.footer .logo{
+  font-size: 2rem;
+}
+.footerLinks a{
+  height: fit-content;
+  display: inline-block;
+  padding:0.2rem 0.3rem;
+  margin:0.4rem 0.2rem;
+  border-radius: 10px;
+}
+.footerLinks a:hover{
+  outline: 2px solid black;
+}
+.footerIcons{
+  height:1.5rem;
+}
+/* Media Queries */
+@media  (min-width:768px) {
+  :root {
+    --navbar-font-size: 2rem;
+    --icons:1.7rem;
+    /* background-color: red; */
+  }
+  .footer{
+    display: flex;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  :root {
+    --navbar-font-size: 3rem;
+    --font-size:1rem;
+    --icons:2rem;
+  }
+}
+@media screen and (min-width:1440px) {
+  :root {
+    --font-size:1.4rem;
+  }
+}
+@media screen and (min-width:2560px) {
+  :root {
+    --navbar-font-size: 5rem;
+    --font-size:2.4rem;
+    --icons:4rem;
+  }
+}

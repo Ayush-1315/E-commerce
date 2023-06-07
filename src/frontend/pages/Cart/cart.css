@@ -1,0 +1,14 @@
+.cartPage{
+    min-height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+    justify-content: space-around;
+}
+.wishlist-page{
+    min-height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+    justify-content: space-around;  
+}

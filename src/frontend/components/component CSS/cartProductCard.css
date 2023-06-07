@@ -1,0 +1,119 @@
+.cartCard{
+    outline: 1px solid grey;
+    display: flex;
+    width: 94%;
+    margin: 1rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 3px;
+    box-shadow: 0px 3px 9px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.cartProductDetails{
+    width: 20rem;
+}
+.cartDisplayImage{
+    height: 10rem;
+    object-fit: contain;
+    width: 10rem;
+}
+.cartProductTitle
+{
+    font-weight: bold;
+}
+.cart-prices span:nth-child(1){
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 0.5rem;
+}
+.cart-prices span:nth-child(2){
+    font-size: 1.3rem;
+    text-decoration: line-through;
+}
+.cartProductDetails p:nth-child(3){
+    font-weight: bold;
+}
+.cartProductDetails p:nth-child(3)>span{
+    color:green;
+}
+.qty-btns{
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 2rem;
+    font-weight: bold;
+    margin: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    box-sizing: 0px 2px 2px black;
+    box-shadow: 1px 2px 9px grey, -1px -2px 12px grey;
+}
+.cart-action-buttons{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.cart-action-buttons button{
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+}
+.cart-action-buttons button:nth-child(1){
+    border: 2px solid var(--color);
+    color: var(--color);
+}
+.cart-action-buttons button:nth-child(1):hover{
+   color:#32635b;
+   border: 2px solid #32635b;
+}
+.cart-action-buttons button:nth-child(2){
+    border: 2px solid white;
+    color: white;
+    background-color: var(--color);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.cart-action-buttons button:nth-child(2):hover{
+    background-color: #32635b;
+}
+.cart-action-buttons button:nth-child(2) span:nth-child(2){
+    font-size: 1rem;
+}
+/* Media Queries */
+@media  (min-width:768px) {
+    .cartCard{
+        outline: 1px solid grey;
+        display: flex;
+        width: fit-content;
+        margin: 1rem;
+        /* border: 1px solid red; */
+        padding: 1rem;
+        border-radius: 3px;
+        box-shadow: 0px 3px 9px;
+    }
+  }
+  
+  @media screen and (min-width:1024px) {
+    :root {
+      --navbar-font-size: 3rem;
+      --font-size:1rem;
+      --icons:2rem;
+    }
+  }
+  @media screen and (min-width:1440px) {
+    :root {
+      --font-size:1.4rem;
+    }
+  }
+  @media screen and (min-width:2560px) {
+    :root {
+      --navbar-font-size: 5rem;
+      --font-size:2.4rem;
+      --icons:4rem;
+    }
+  }
+  

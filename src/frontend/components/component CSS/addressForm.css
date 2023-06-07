@@ -1,0 +1,88 @@
+.addressForm{
+    text-align: left;
+    padding:10px;
+    width:95%;
+    background: white;
+    border-radius: 5px;
+    position: absolute;
+    top: 17%;
+    left: 2%;
+}
+.addressFormHeader{
+    display: flex;
+    justify-content: space-between;
+}
+.addressFormHeader h2{
+    margin: 0.5rem;
+}
+.addressFormFooter{
+    display: flex;
+    justify-content: center;
+    padding:1rem;
+}
+.addressFormFooter button{
+    background: var(--color);
+    color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+}
+.addressFormFooter button:disabled{
+    background: #2a544d;
+}
+.formClose{
+    align-self: center;
+    height: -moz-fit-content;
+    height: fit-content;
+    border: none;
+    background: white;
+    color: grey;
+    cursor: pointer;
+}
+.formClose:hover{
+    color:black
+}
+.parent-wrapper{
+    border-radius: 3px;
+}
+.input-wrapper{
+    width: fit-content;
+    border: 2px solid var(--color);
+    border-radius: 10px;
+    display: inline-block;
+    min-width: 48%; 
+    text-align: left;
+}
+.input-wrapper legend{
+    color:var(--color);
+}
+.input-wrapper input[type="text"],.input-wrapper input[type="email"]{
+    border:none;
+    outline: none;
+    padding:0.3rem;
+    width: 100%;
+}
+.block-element{
+    display: block;
+    width: 98%;
+}
+/* Media Queries */
+@media  (min-width:768px) {
+    .addressForm{
+        text-align: left;
+        padding: 10px;
+        width: 60%;
+        background: white;
+        border-radius: 5px;
+        position: absolute;
+        top: 9%;
+        left: 23%;
+    }
+   }
+   
+   @media screen and (min-width:1024px) {
+     .sign-up-form{
+         width: 45%;
+        }
+   }

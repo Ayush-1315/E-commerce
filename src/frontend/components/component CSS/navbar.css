@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&family=PT+Sans+Caption&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+nav{
+    box-shadow: 0px 4px 8px 0px #3c3434;
+    position: relative;
+    z-index: 2;
+}
+.Navbar{
+    display: flex;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    height: 8vh;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    font-family: 'Major Mono Display', monospace;
+    overflow: hidden;
+}
+ .logo{
+    font-family: 'Nova Square', cursive;
+
+    font-size: var(--navbar-font-size);
+    /* text-shadow: 2px 3px black; */
+    color:white
+}
+.logo a{
+    text-decoration: none;
+    color: black;
+    padding: 0 0.5rem;
+}
+.searchBar,.searchBarMob{
+    border:2px solid black;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+    
+    display: flex;
+    display: none;
+    position: relative;
+    justify-content: space-between;
+    width:40vw;
+}
+.searchBar input,.searchBarMob input{
+border: none;
+outline: none;
+width:100%;
+padding: 0.3rem 0.5rem;
+font-size: var(--font-size);
+font-family: 'PT Sans Caption', sans-serif;
+}
+.searchBtn{
+    background-color: white;
+    cursor: pointer;
+    border: none;
+    padding: 0px;
+}
+.search{
+    display: block;
+}
+.navbarOptions{
+    display: flex;
+    min-width: 10rem;
+    justify-content: space-between;
+}
+.navbarOptions a{
+    color:black;
+}
+.material-symbols-outlined{
+    font-size: var(--icons);
+    font-weight: bolder;
+}
+.optionHolder{
+    position: relative;
+    padding:0.5rem;
+}
+.badge{
+    position: absolute;
+    left: 18px;
+    font-size: 15px;
+    background: red;
+    height: 20px;
+    padding: 1px;
+    width: 20px;
+    border-radius: 14px;
+    top: 0px;
+    font-weight: normal;
+    color: white;
+    font-family: 'PT Sans Caption';
+}
+.searchBarMob{
+    display: flex;
+    width: 100%;
+}
+.searchScreen{
+        background-color: white;
+        padding:0.5rem;
+        width: 100vw;
+        min-height: 8vh;
+}
+/* Media Queries */
+@media screen and (min-width:768px) {
+    .search{
+        display: none;
+    }
+    .searchBar{
+        display: flex;
+    }
+    .searchScreen{
+        display: none!important;
+    }
+}
