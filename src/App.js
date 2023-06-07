@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="App">
      <Navbar/>
-    <div style={{minHeight:"100vh"}}>
+    <div className="container">
         <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/wishlist" element={

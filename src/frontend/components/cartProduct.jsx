@@ -32,18 +32,22 @@ export const CartProductCard = ({ product }) => {
       </div>
       <div className="cartProductDetails">
         <span className="cartProductTitle">{title}</span>
-        <p>
+        <p className="cart-prices">
           <span>₹{offerPrice}</span>
           <span>₹{price}</span>
         </p>
-        <p>{discount}</p>
+        <p>Discount: <span>{discount}</span></p>
         <p>
-          Quantity:<button onClick={() => manageQty("decrease")}>-</button>
+          Quantity:<button onClick={() => manageQty("decrease")} className="qty-btns">-</button>
           <span>{qty}</span>
-          <button onClick={() => manageQty("increase")}>+</button>
+          <button onClick={() => manageQty("increase")} className="qty-btns">+</button>
         </p>
+        <p className="cart-action-buttons">
         <button onClick={removeProduct}>Remove from Cart</button>
-        <button onClick={moveProduct}>Move to Wishlist</button>
+        <button onClick={moveProduct}><span>Save for Later </span><span className="material-symbols-outlined">
+favorite
+</span></button>
+        </p>
       </div>
     </div>
   );

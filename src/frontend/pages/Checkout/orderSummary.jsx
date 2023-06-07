@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
-import {v4 as uuid} from "uuid";
+import { v4 as uuid } from "uuid";
 import { useCart } from "../../context/cartContext";
 import { useUser } from "../../context/userContext";
 import "./orderSummary.css";
@@ -8,13 +8,18 @@ import { AddressForm } from "../../components/addressForm";
 import { notify } from "../../../App";
 
 export const OrderSummary = () => {
-//    console.log(uuid());
-  const { cartState,resetCart } = useCart();
+  //    console.log(uuid());
+  const { cartState, resetCart } = useCart();
   const [itemsList, setItemsList] = useState([]);
-  const { addresses,orders,setOrders } = useUser();
+  const { addresses, orders, setOrders } = useUser();
   const [deliveryAddress, setDeliveryAddress] = useState(null);
   const [addNewAddress, setNewAddress] = useState(false);
-  const addressChange = (e) => setDeliveryAddress(addresses[e.target.value]);
+  // const selectedAddress=(e)=>{}
+  const [selectAddress, setSelectAddress] = useState(null);
+  const addressChange = (e) => {
+    setDeliveryAddress(addresses[e.target.value]);
+    setSelectAddress(e.target.value);
+  };
   const initialPricing = {
     items: 0,
     price: 0,
@@ -61,19 +66,19 @@ export const OrderSummary = () => {
     return new Promise((resolve, reject) => {
       const script = document.createElement("script");
       script.src = url;
-  
+
       script.onload = () => {
         resolve(true);
       };
-  
+
       script.onerror = () => {
         resolve(false);
       };
-  
+
       document.body.appendChild(script);
     });
   };
-const displayRazorpay = async () => {
+  const displayRazorpay = async () => {
     const response = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -82,25 +87,29 @@ const displayRazorpay = async () => {
       return;
     }
     const options = {
-        // rzp_test_VNzbbuNCZjttNc
-        // rzp_test_inOiRZzQS21nfX
-      key: "rzp_test_inOiRZzQS21nfX",
+      // rzp_test_VNzbbuNCZjttNc
+      // rzp_test_inOiRZzQS21nfX
+      // rzp_test_4hPkeR34PzPm3M
+      key: "rzp_test_VNzbbuNCZjttNc",
       amount: Number(priceDetails.totalPrice) * 100,
       currency: "INR",
       name: "ShopsyCart",
       description: "Thank you for shopping with us",
       handler: function (response) {
         notify(`Payment of Rs. ${priceDetails.totalPrice} is Succesful`);
-        setOrders([...orders,{
-            orderId:uuid(),
-            transactionId:response.razorpay_payment_id,
-            items:itemsList,
-            price:priceDetails,
-            deliverTo:deliveryAddress
-        }])
+        setOrders([
+          ...orders,
+          {
+            orderId: uuid(),
+            transactionId: response.razorpay_payment_id,
+            items: itemsList,
+            price: priceDetails,
+            deliverTo: deliveryAddress,
+          },
+        ]);
         navigate("/success");
         setTimeout(() => {
-          console.log("Success")
+          console.log("Success");
           navigate("/");
           resetCart();
         }, 4000);
@@ -113,7 +122,6 @@ const displayRazorpay = async () => {
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
   };
-
   return (
     <>
       <div>
@@ -122,7 +130,16 @@ const displayRazorpay = async () => {
           <div className="addressComponent">
             <h3>Select Delivery Address</h3>
             {addresses.map((address, index) => (
-              <label htmlFor={index} key={index} className="checkoutAddresses">
+              <label
+                htmlFor={index}
+                key={index}
+                className="checkoutAddresses"
+                style={{
+                  border: `2px solid ${
+                    selectAddress === index ? "var(--color)" : "'#32635b':"
+                  }`,
+                }}
+              >
                 <input
                   type="radio"
                   id={index}
@@ -131,15 +148,21 @@ const displayRazorpay = async () => {
                   value={index}
                 />
                 <div>
-                  <p>
+                  <p className="deliveryName">
                     {address?.firstName} {address?.lastName}
                   </p>
-                  <p>{address?.email}</p>
-                  <p>Ph:{address?.phone}</p>
-                  <p>
-                    Address: {address?.city},{address?.state},{address?.country}
-                    ,{address?.pinCode}
+                  <p className="deliveryMail">{address?.email}</p>
+                  <p className="deliveryPhone">
+                    <span>Ph:</span>
+                    {address?.phone}
                   </p>
+                  <div className="deliveryAddress">
+                    <span>Address:</span>
+                    <p>
+                      {address?.city},{address?.state},{address?.country},
+                      {address?.pinCode}
+                    </p>
+                  </div>
                 </div>
               </label>
             ))}
@@ -148,38 +171,44 @@ const displayRazorpay = async () => {
               setFormFun={(val) => setNewAddress(val)}
               updateIndex={-1}
             />
-            <button onClick={() => setNewAddress(true)}>Add new Address</button>
+            <button
+              onClick={() => setNewAddress(true)}
+              className="addAddressBtn"
+            >
+              + Add new Address
+            </button>
           </div>
           <div className="priceDetailsComponent">
-            <div>Order Details</div>
-            <div>
-              <div>Item</div>
-              <div>Price</div>
-              {itemsList.map((item, index) => (
-                <div key={index}>
-                  <div>
-                    <div>
-                      {item?.title} X {item?.qty}
-                    </div>
-                    <div>
-                      Rs.
-                      {parseInt(item?.offerPrice.replaceAll(",", "")) *
-                        parseInt(item?.qty)}
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <div className="priceHead">Order Details</div>
+            <div className="price-listing">
+              <span>Item</span>
+              <span>Qty.</span>
+              <span>Price</span>
             </div>
-            <div>Price Details</div>
-            <div>
-              <p>Sub total: {priceDetails?.price}</p>
-              <p>Discount: {priceDetails?.discount}</p>
-              <p>Grand Total: {priceDetails?.totalPrice}</p>
+            {itemsList.map((item, index) => (
+              <div key={index} className="summary-listed-item">
+                <p className="summary-item">
+                  {item?.title} X 
+                </p>
+                <p className="summary-item-qty">
+                {item?.qty}
+                </p>
+                <p className="summary-item-price">
+                  ₹
+                  {parseInt(item?.offerPrice.replaceAll(",", "")) *
+                    parseInt(item?.qty)}
+                </p>
+              </div>
+            ))}
+            <div className="price-footer">
+              <p><span>Sub total: </span><span>₹{priceDetails?.price}</span></p>
+              <p><span>Discount:</span> <span>-₹{priceDetails?.discount}</span></p>
+              <p><span>Grand Total:</span> <span>₹{priceDetails?.totalPrice}</span></p>
             </div>
-            <div>Deliver to</div>
+            <div className="deliver-to">Shippment Address</div>
             <div>
               {deliveryAddress ? (
-                <div>
+                <div className="shipment-address">
                   <p>
                     {deliveryAddress?.firstName} {deliveryAddress?.lastName}
                   </p>
@@ -195,7 +224,13 @@ const displayRazorpay = async () => {
               )}
             </div>
             <div>
-              <button onClick={()=>displayRazorpay()} disabled={deliveryAddress===null}>Place Order</button>
+              <button
+                onClick={() => displayRazorpay()}
+                disabled={deliveryAddress === null}
+                className="order-place-btn"
+              >
+                Place Order
+              </button>
             </div>
           </div>
         </div>

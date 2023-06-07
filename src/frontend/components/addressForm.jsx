@@ -52,7 +52,7 @@ export const AddressForm = ({
       <div
         className="formBackground"
         style={{ display: showForm ? "block" : "none" }}
-      ></div>
+      >
       <div
         style={{
           display: showForm ? "block" : "none",
@@ -190,6 +190,7 @@ export const AddressForm = ({
             </button>
           </div>
         </form>
+      </div>
       </div>
     </>
   );

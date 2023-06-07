@@ -66,6 +66,7 @@ export const AuthProvider = ({ children }) => {
       }
       if (localStorage.getItem("token")) {
         setIsLogin(true);
+        notify("Logged In");
         navigate(location?.state?.pathname);
       }
     } catch (e) {
@@ -74,7 +75,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
   const signUp = async (newUser) => {
-    // console.log(newUser);
     try {
       const response = await createUser(newUser);
       if (response?.encodedToken === undefined) throw response;

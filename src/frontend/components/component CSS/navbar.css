@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oleo+Script&family=PT+Sans+Caption&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
 nav{
     box-shadow: 0px 4px 8px 0px #3c3434;
     position: relative;
@@ -14,17 +15,19 @@ nav{
     align-items: center;
     width: 100%;
     position: relative;
-    font-family: 'PT Sans Caption', sans-serif;
+    font-family: 'Major Mono Display', monospace;
+    overflow: hidden;
 }
  .logo{
-    font-family: 'Oleo Script', cursive;
+    font-family: 'Nova Square', cursive;
+
     font-size: var(--navbar-font-size);
-    text-shadow: 2px 3px black;
+    /* text-shadow: 2px 3px black; */
     color:white
 }
 .logo a{
     text-decoration: none;
-    color: var(--color);
+    color: black;
     padding: 0 0.5rem;
 }
 .searchBar,.searchBarMob{
@@ -59,7 +62,6 @@ font-family: 'PT Sans Caption', sans-serif;
     display: flex;
     min-width: 10rem;
     justify-content: space-between;
-    align-items: flex-end;
 }
 .navbarOptions a{
     color:black;

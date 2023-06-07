@@ -9,7 +9,7 @@ export const Wishlist=()=>{
     const {wishlistState}=useWishlist();
     const encodedToken=localStorage.getItem("token");
     const wishlistEmpty=wishlistState.length===0;
-    return <div style={{minHeight:"72vh"}}>
+    return <div className="wishlist-page">
     {
         encodedToken?
        ( wishlistEmpty?<>

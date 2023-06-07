@@ -10,14 +10,17 @@
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
-
+.container{
+  min-width: 100vw;
+  min-height: 100vh;
+  /* padding:1rem; */
+}
 .App {
   background-color: rgb(240, 242, 245);
   text-align: center;
   position: relative;
   min-height: 100vh;
 }
-
 
 .categoryContainer {
   display: flex;
@@ -38,9 +41,16 @@
   display: block;
   text-decoration: none;
 }
-
-
-
+.empty-page{
+  margin: auto;
+}
+.empty-page h1{
+  font-size: 1.5rem;
+  width: fit-content;
+}
+.empty-page img{
+  width: 23rem;
+}
 /* Products Card */
 .card {
   list-style: none;

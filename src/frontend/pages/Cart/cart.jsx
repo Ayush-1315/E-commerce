@@ -3,6 +3,7 @@ import { CartProductCard } from "../../components/cartProduct";
 import { EmptyState } from "../../components/emptyState";
 import { PriceCard } from "../../components/priceCard";
 import { useCart } from "../../context/cartContext";
+import "./cart.css"
 export const Cart = () => {
   useEffect(()=>{
     document.title="Cart | ShopsyCart";
@@ -11,7 +12,7 @@ export const Cart = () => {
   const encodedToken = localStorage.getItem("token");
   const cartEmpty = cartState.length === 0;
   return (
-    <div style={{ minHeight: "72vh", display: "flex", flexWrap: "wrap" }}>
+    <div className="cartPage">
         {encodedToken ? (
           cartEmpty ? (
             <>

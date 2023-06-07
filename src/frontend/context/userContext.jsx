@@ -18,7 +18,6 @@ export const UserProvider = ({ children }) => {
       };
     setAddresses([currentAddress]);
     setOrders([]);
-    console.log('Auth Working');
  },[authState]);
 //  Address Management
   const [addresses, setAddresses] = useState([]);

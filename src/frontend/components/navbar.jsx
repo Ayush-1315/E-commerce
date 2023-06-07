@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState} from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useProducts } from "../context/productsContext";
 import { useAuth } from "../context/authContext";
@@ -32,13 +32,15 @@ export const Navbar = () => {
   const showFilters = () =>
     setSideMenu({ ...sideMenu, sidemenu: !sideMenu.sidemenu });
   const { menu } = sideMenu;
+  // const [windowSize, setWindowSize] = useState([window.innerWidth]);
+
   return (
     <nav>
       <div className="Navbar">
         <div className="logo">
           <span
             className="material-symbols-outlined showMenu"
-            style={{ display: menu ? "inline-block" : "none" }}
+            style={{ display: menu ? "inline-block" : "none",color:"black" }}
             onClick={showFilters}
           >
             menu

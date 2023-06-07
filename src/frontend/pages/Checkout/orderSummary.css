@@ -1,25 +1,171 @@
-.orderSummaryContainer{
+.orderSummaryContainer {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 1rem;
+    flex-wrap: wrap;
+    gap:1rem;
 }
-.addressComponent{
-    width: 40vw;
+
+.addressComponent {
+    width: 95vw;
     background-color: white;
-    padding:1rem;
+    padding: 1rem;
     text-align: left;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px black;
+    height: fit-content;
 }
-.priceDetailsComponent{
-    width:50vw;
+
+.priceDetailsComponent {
+    width: 92vw;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px black;    
 }
-.checkoutAddresses{
+
+.checkoutAddresses {
     display: flex;
     align-items: center;
     width: 100%;
     margin: 0.5rem;
-    border: 2px solid red;
+    border: 2px solid var(--color);
+    border-radius: 10px;
 }
-.checkoutAddresses div{
+
+.checkoutAddresses div {
     width: 100%;
-    padding:0  0.5rem;
+    padding: 0 0.5rem;
+}
+
+.checkoutAddresses p {
+    margin: 0.3rem;
+}
+
+.deliveryName,
+.deliveryAddress span,
+.deliveryPhone span {
+    font-weight: bold;
+}
+
+.priceHead {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 2px solid;
+}
+
+.price-listing {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 2px solid;
+    font-weight: bold;
+}
+
+.price-listing span:nth-child(1) {
+    width: calc(50%);
+    text-align: left;
+    padding: 0 1rem;
+}
+
+.price-listing span:nth-child(2) {
+    width: calc(10%);
+}
+
+.price-listing span:nth-child(3) {
+    width: calc(30%);
+    text-align: right;
+    padding: 0 1rem;
+}
+
+.summary-listed-item {
+    display: flex;
+}
+
+.summary-item {
+    width: calc(50%);
+}
+
+.summary-item-qty {
+    width: calc(18%);
+    font-weight: bold;
+}
+
+.summary-item-price {
+    width: calc(30%);
+    font-weight: bold;
+    padding: 0 1rem;
+    text-align: right;
+}
+
+.price-footer {
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+
+.price-footer p {
+    margin: 0;
+    display: felx;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    font-weight: bold;
+}
+
+.price-footer p:nth-child(2) span:nth-child(2) {
+    color: green;
+}
+.deliver-to{
+    text-align: left;
+    padding: 0 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.shipment-address{
+    text-align: left;
+    padding: 0 1rem;
+}
+.shipment-address p{
+    margin: 0;
+}
+.order-place-btn{
+    width: 100%;
+    padding: 0.5rem;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background: var(--color);
+    margin-top: 1rem;
+    cursor: pointer;
+}
+/* Media Queries */
+@media (min-width:768px) {
+    .addressComponent {
+        width: 40vw;
+    }
+
+    .checkoutAddresses {
+        width: 80%;
+    }
+
+    .priceDetailsComponent {
+        width: 50vw;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .addressComponent {
+        width: 30vw;
+        height: fit-content;
+    }
+
+    .checkoutAddresses {
+        width: 80%;
+    }
+
+    .priceDetailsComponent {
+        width: 27vw;
+    }
 }

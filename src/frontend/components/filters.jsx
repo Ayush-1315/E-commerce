@@ -9,7 +9,7 @@ export const Filters = () => {
     {<div className='sidebarFilter'>
       <form action="#">
         <div>
-        <span className="filterPrice">Price</span><br />
+        <span className="filterPrice filter-type">Price</span><br />
         <input
           type="range"
           list="tickmark"
@@ -37,7 +37,7 @@ export const Filters = () => {
          </datalist>
          </div>
          <p style={{display:"flex",justifyContent:"space-between",margin:"0"}}><span>1000</span><span>170000</span></p>
-        <span>Category</span>
+        <span className='filter-type'>Category</span>
         { !filterStateWaiter  ? allCategories.map(({ category, value }, index) => (
           <span
             style={{ display: "block", textAlign: "left", margin: "0 0.5rem" }}
@@ -54,10 +54,10 @@ export const Filters = () => {
               }
               checked={filterState.categories.includes(value)}
             />
-            <label htmlFor={category}>{category}</label>
+            <label htmlFor={category} className='labels'>{category}</label>
           </span>
         )) : <>Loading</>}
-        <span>Rating</span>
+        <span className='filter-type'>Rating</span>
         {rating.map((rating,index) => (
           <span
             style={{ display: "block", textAlign: "left", margin: "0 0.5rem" }}
@@ -71,11 +71,12 @@ export const Filters = () => {
               onChange={() =>
                 filterDispatch({ type: "SORT_BY_RATING", payload: rating })
               }
+              checked={filterState?.rating===rating}
             />
-            <label htmlFor={rating}>{rating} Stars & above</label>
+            <label htmlFor={rating} className='labels'>{rating}⭐& above</label>
           </span>
         ))}
-        <span>Sort By Price</span>
+        <span className='filter-type'>Sort By Price</span>
         <span
           style={{ display: "block", textAlign: "left", margin: "0 0.5rem" }}
         >
@@ -87,8 +88,9 @@ export const Filters = () => {
             onChange={() =>
               filterDispatch({ type: "SORT_BY_PRICE", payload: "low" })
             }
+            checked={filterState?.sortBy==="low"}
           />
-          <label htmlFor="low">Low to High</label>
+          <label htmlFor="low" className='labels'>Low to High</label>
         </span>
         <span
           style={{ display: "block", textAlign: "left", margin: "0 0.5rem" }}
@@ -101,8 +103,9 @@ export const Filters = () => {
             onChange={() =>
               filterDispatch({ type: "SORT_BY_PRICE", payload: "high" })
             }
+            checked={filterState?.sortBy==="high"}
           />
-          <label htmlFor="high">High to Low</label>
+          <label htmlFor="high" className='labels'>High to Low</label>
         </span>
         <input
           type="reset"
